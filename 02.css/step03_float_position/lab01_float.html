@@ -14,6 +14,45 @@
                 float: left;
             }
 
+            .p2{
+                clear: left;
+            }
+
+            /* 가로 정렬 */
+            .box{
+                width: 100px;
+                height: 100px;
+                background: gold;
+                margin: 10px;
+                float: left;
+            }
+
+            .box4{
+                width: 200px;
+                height: 150px;
+                background: tomato;
+                clear: left;
+            }
+
+            /* 2. 부모요소 해제 */
+            .parent{
+                overflow: hidden;
+            }
+
+            /* 3. clearfix */
+            .clearfix::after{
+                content: "---";
+                clear:both;
+                display: block;
+            }
+
+            span{
+                width: 100px;
+                height: 100px;
+                background: violet;
+                margin: 10px;
+                float:left;
+            }
         </style>
 
     </head>
@@ -25,11 +64,43 @@
             <div class="pic"></div>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, delectus, ad ratione amet eveniet accusamus quos animi totam dicta officia nisi dolore molestias similique corrupti perspiciatis esse voluptatibus consequatur mollitia!
             
-            <div class="pic2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam provident tempore iste. Nesciunt quae magni consectetur placeat aut, eum tempore. Voluptatibus odio voluptate maiores, ad provident fuga sed quis voluptatum?</div>
-            
-
+            <div class="p2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam provident tempore iste. Nesciunt quae magni consectetur placeat aut, eum tempore. Voluptatibus odio voluptate maiores, ad provident fuga sed quis voluptatum?</div>
         </article>
+
+        <hr><br><br>
         
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box4">4</div>
+        <hr><br><br>
+        <!-- float 해제 방법 -->
+        <!-- 1. 형제 요소에 clear: left, rigth, both -->
+        <!-- IF, 해제 대상 형제 요소가 없다면? -->
+        
+        <!-- 2. 부모요소에 overflow : hiddent, auto -->
+        <div class="parent">
+            <div class="child"></div>
+            <div class="child"></div>
+        </div>
+        <hr><br><br>
+        <!-- overflow는 정렬과 관계없는 property이므로 적절치 않음 -->
+        
+        <!-- 3. 부모 요소에 clearfix 클래스 추가 -->
+        <div class="clearfix">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+        </div>
+        <div class="box4">4</div>
+
+        <hr><br><br>
+
+        <!-- float의 경우 inline-, table- 요소를 block으로 변경하는 부분이 내포 -->
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+
 
     </body>
 </html>

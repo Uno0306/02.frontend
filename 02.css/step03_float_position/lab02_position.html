@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>lab02_position.html</title>
+        <style>
+            .parent{
+                width: 500px;
+                height: 400px;
+                border: 3px solid;
+            }
+
+            .child{
+                width: 100px;
+                height: 100px;
+                background: red;
+                border: 3px dotted gray;
+                position: absolute;
+
+                top: 50px;
+                left: 50px;
+            }
+
+            .box{
+                width: 100px;
+                height: 100px;
+                background: red;
+                border: 3px dashed gray;
+            }
+
+            .relative{
+                position: relative;
+                left: 300px;
+                bottom : 100px;
+            }
+
+            /* absolute */
+            .grand{
+                width: 600px;
+                height: 500px;
+                border: 3px solid blue;
+                padding: 20px;
+            }
+
+            .absolute{
+                position: absolute;
+                top: 50px;
+                left: 100px;
+            }
+
+            /* fixed */
+            .fixed{
+                position: fixed;
+                top: 50px;
+                right: 50px;
+            }
+
+            body{
+                height: 2000px;
+            }
+        </style>
+
+    </head>
+    <body>
+        <!-- position : 요소의 위치 지정 기준 설정 -->
+        <!-- static : 기준 없는/배치 불가능(기본값) -->
+        <!-- rellative : 요소 자기 자신 -->
+        <!-- absolute : (위치상) 부모 요소 기준 -->
+        <!-- fixed : 브라우저 기준 -->
+        <!-- sticky : 스크롤 영역 기준 -->
+
+
+        <!-- <div class="parent">
+            <div class="child"></div>
+        </div> -->
+
+        <!-- relative -->
+        <!-- <div class="box">1</div> -->
+        <!-- <div class="box relative">2</div> -->
+        <!-- <div class="box">3</div> -->
+
+        <!-- absolute -->
+        <!-- fixed -->
+        <div class="grand">
+            <div class="parent">
+                <div class="box">1</div>
+                <div class="box absolute">2</div>
+                <div class="box fixed">3</div>
+            </div>
+        </div>
+
+
+
+        <br><br><br><br><br><br><br><br><br><br>
+    </body>
+</html>
