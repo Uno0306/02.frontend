@@ -1,27 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>lab01_width_height</title>
-    <style>
-        /* 블록요소 */
-        /* 너비 : auto */
-        /* 높이 : 0 */
-        div{
-            width: auto;
-            height: 100px;
-            background: gold;
-        }
-    </style>
-</head>
-<body>
-    <!-- width : 요소의 가로너비 -->
-    <!-- height : 요소의 세로너비 -->
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>lab01_width_height</title>
+        <style>
+            /* 블록요소 */
+            /* 너비 : auto */
+            /* 높이 : 0 */
+            /* div{
+                width: auto;
+                height: 100px;
+                background: gold;
+            } */
 
-    <div></div>
+            /* 인라인 요소 */
+            /* span{
+                width: auto;
+                height: auto;
+                background: plum;
+
+            } */
+
+            .parent{
+                width: 100px;
+                height: 300px;
+                border: 3px solid red;
+            }
+
+            .child{
+                max-width: 300px;
+                min-width: 200px;
+                height: 150px;
+                background: darkgray;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- width : 요소의 가로너비 -->
+        <!-- height : 요소의 세로너비 -->
+
+        <!-- <div></div>
+
+        <span>content</span> -->
+
+        <!-- max-  /  min-  -->
+        <div class="parent">
+            <div class="child"></div>
+        </div>
 
 
-</body>
+    </body>
 </html>
