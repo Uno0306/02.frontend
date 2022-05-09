@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Domain</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+        <style>
+            html, body{
+                height: 100%;
+            }
+            
+            nav{
+                height: 150px;
+                width: 100%;
+                position: fixed;
+                background: rgb(218, 203, 122);
+                padding-left: 10%;
+                padding-left: 10%;
+            }
+
+
+            #nav_logo{
+                float: left;
+                margin-top: 50px;
+                margin-left: 150px;
+                width: 50px;
+                height: 50px;
+            }
+
+            .bar{
+                float: left;
+            }
+
+            .member{
+                float: right;
+                font-size: 15px;
+                font-weight: 80;
+
+            }
+
+            .member li{
+                float: left;
+                padding-left: 20px;
+            }
+
+            #search{
+                width: 15px;
+                height: 15px;
+            }
+
+            .menubar{
+                width: 100%;
+                padding-top: 20px;
+                clear: both;
+                margin-left: 20%;
+                font-size: 20px;
+                font-weight: 100;
+            }
+
+            .menubar li{
+                float: left;
+                padding-left: 20px;
+            }
+
+            
+            section{
+                height: 380px;
+                border: 2px dashed black;
+            }
+            
+            .section5{
+                background-image: url("https://www.starbucks.co.kr/common/img/main/fav_prod_bg_new.jpg");
+                background-size: auto 100%;
+                background-repeat: no-repeat;
+                background-position: right bottom;
+                background-attachment: fixed;
+            }
+
+            .box{
+                width: 100px;
+                height: 100px;
+                background: darkgreen;
+                color: white;
+                text-align: center;
+                line-height: 95px;
+            }
+
+            .fixed{
+                top: 200px;
+                right: 50px;
+                position: fixed;
+            }
+
+            .fixed2{
+                top: 350px;
+                right: 50px;
+                position: fixed;
+            }
+
+            footer{
+                clear: both;
+                position : relative;
+                transform : translateY(-100%);
+                padding-top: 20px;
+                height: 180px;
+                width: auto;
+                background: darkslategray;
+                color: white;
+            }
+
+            .ft_nav{
+                margin: 0 80px;
+            }
+            
+            .first_ul{
+               padding-left: 25%;
+            }
+            
+            .ft_ul ul{
+                float: left;
+                margin-left: 80px;
+                font-size: 15px;
+            }
+
+            .ft_ul ul li{
+                padding-top: 8px;
+            }
+
+            .copyright{
+                clear: both;
+                padding-top: 50px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <img id="nav_logo" src="img/starbucks_logo.png" alt="logo">
+               
+                <div class="bar">
+                    <ul class="member">
+                        <li>Sign in</li>
+                        <li>My Starbucks</li>
+                        <li>Customer Service & ideas</li>
+                        <li>Find a Store</li>
+                        <li>
+                            <img id="search" src="./img/search.png">
+                        </li>
+                    </ul>
+                
+                    
+                    <ul class="menubar">
+                        <li>COFFEE</li>
+                        <li>MENU</li>
+                        <li>STORE</li>
+                        <li>REPONSIBILITY</li>
+                        <li>STARBUCKS REWARDS</li>
+                        <li>WHAT'S NEW</li>
+                    </ul>
+
+                </div>
+
+            </nav>
+        </header>
+        
+        <div class="adbox">
+            <div class="box fixed">광고1</div>
+            <div class="box fixed2">광고2</div>
+
+        </div>
+
+        <article>
+            <section class="section1">1</section>
+            <section class="section2">2</section>
+            <section class="section3">3</section>
+            <section class="section4">4</section>
+            <section class="section5">5</section>
+            <section class="section6">6</section>
+            <section class="section7">7</section>
+        </article>
+
+        <footer>
+            <div class="ft_nav">
+                <div class="ft_ul">
+                    <ul class="first_ul"> 
+                        <li>한눈에 보기</li>
+                        <li>스타벅스 사명</li>
+                        <li>스타벅스 소개</li>
+                    </ul>
+                    <ul>
+                        <li>단체 및 기업 구매 안내</li>
+                    </ul>
+                    <ul>
+                        <li>신규입점 제의</li>
+                        <li>협력 고객사 등록신청</li>
+                    </ul>
+                    <ul>
+                        <li>페이스북</li>
+                        <li>트위터</li>
+                        <li>유튜브</li>
+                        <li>인스타그램</li>
+                    </ul>
+                    <ul>
+                        <li>채용 소개</li>
+                        <li>채용 지원하기</li>
+                    </ul>
+
+                </div>
+                <div class="copyright">
+                    copy right
+                </div>
+            </div>        
+        </footer>
+    </body>
+</html>
