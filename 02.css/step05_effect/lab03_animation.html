@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>lab03_animation.html</title>
+        <style>
+            .box{
+                width: 100px;
+                height: 100px;
+                background: gold;
+                margin: 10px;
+            }
+
+            /* @keyframes change-width {
+                0%{
+                    width: 100px;
+                }
+                50%{
+                    width: 200px;
+                    background: green;
+                }
+                100%{
+                    width: 300px;
+                    background: red;
+                }
+            }
+
+            .box:hover{
+                animation-name: change-width;
+                animation-duration: 2s;
+            } */
+
+            /* .box1{background: gold;}
+            .box2{background: green;}
+            .box3{background: red;} */
+
+            @keyframes up-size {
+                0%{
+                    width: 100px;
+                }
+                100%{
+                    width: 300px;
+                }
+
+            }
+
+            /* .box1:hover{
+                animation-name: up-size;
+                animation-duration: 1s;
+                animation-timing-function: linear;
+                animation-delay: 0s;
+            } */
+
+            /* .box2:hover{
+                animation-name: up-size;
+                animation-duration: 1s;
+                animation-timing-function: ease-out;
+                /* animation-delay: 1s; */
+         /*   } */
+
+            /* .box3:hover{
+                animation-name: up-size;
+                animation-duration: 1s;
+                animation-timing-function: linear;
+                animation-delay: -1s;
+            } */
+
+            /* direction */
+            .box.direction{
+                animation-name: move;
+                animation-duration: 2s;
+                animation-direction: normal;
+                animation-direction: reverse;
+                animation-direction: alternate;
+                animation-iteration-count: 2;
+            }
+
+            @keyframes move {
+                0%{
+                    transform: translate(0, 0);
+                }
+                25%{
+                    transform: translate(50px, 0);
+                }
+                50%{
+                    transform: translate(50px, 50px);
+                }
+                75%{
+                    transform: translate(0, 50px);
+                }
+                100%{
+                    transform: translate(0, 0);
+                }
+            }
+
+            /* fill-mode */
+            .box.fill-mode{
+                animation: fill-mode 6s 1s;
+                animation-fill-mode: backwards;
+            }
+
+            @keyframes fill-mode {
+                0%{
+                    transform: translate(200px, 0);
+                }
+                100%{
+                    transform: translate(400px, 400px);
+                }
+            }
+
+
+            .box.play-state{
+                animation: up-size 2s infinite alternate;
+            }
+
+            .box.play-state:hover{
+                animation-play-state: paused;
+            }
+
+
+
+
+        </style>
+    </head>
+    <body>
+        <!-- 애니메이션 : 요소의 애니메이션 효과를 설정 -->
+        <!-- animation-name         : @keyframes 규칙의 이름 지정(none) -->
+        <!-- animation-duration : 지속시간 설정(0s) -->
+        <!-- animation-timing-function : 타이밍 함수(ease) -->
+        <!-- animation-delaty : 지연(대기) 시간(0s) -->
+        <!-- animation-iteration-count : 반복 횟수(1) -->
+        <!-- animation-direction : 방향 설정(normal) -->
+        <!-- animation-fill-mode : 전후 상태(위치) 설정(none) -->
+        <!-- animation-play-state : 재생과 정지(running) -->
+
+        <!-- <div class="box"></div> -->
+
+        <!-- timing-function & delay -->
+        <!-- <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3"></div> -->
+
+        <div class="box direction"></div>
+        <div class="box fill-mode"></div>
+
+        <div class="box play-state"></div>
+    </body>
+</html>

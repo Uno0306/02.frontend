@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>lab01_transition</title>
+        <style>
+            .box{
+                width: 100px;
+                height: 100px;
+                background: gold;
+
+                /* transition: all 1s; */
+                transition-property: width, background;
+                transition-duration: 1s;
+                transition-timing-function: linear;
+            }
+
+            .box:hover{
+                width: 250px;
+                background: green;
+            }
+
+        </style>
+    </head>
+    <body>
+        <!-- transition : CSS 속성의 시작과 끝을 지정하며 중간에 애니메이션 효과를 넣도록 하는 역할 -->
+        <!-- transition-property: 속성 이름(all) -->
+        <!-- transition-duration: 지속시간(0s) -->
+        <!-- transition-timing-function: 타이밍 함수(ease) -->
+        <!-- transition-delay: 대기시간(0s) -->
+        <div class="box"></div>
+
+
+
+    </body>
+</html>

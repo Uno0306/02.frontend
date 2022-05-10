@@ -1,0 +1,1 @@
+console.log("Hello, JS(외부)")
