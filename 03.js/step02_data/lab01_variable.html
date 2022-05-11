@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>lab01_variable.html</title>
+    </head>
+    <body>
+       <script>
+           // 순서
+           var x; // 변수의 선언
+        //    console.log(x);  // 에러 - 변수의 값이 없어서
+            x = 10; // 할당
+            var x2 = 10;    // 선언 + 할당 = 초기화
+
+            console.log(x);
+            console.log(x2);
+
+            x = 30; // 재초기화
+            console.log(x);
+            
+            var x= 40;
+            var x= '사십';
+            console.log(x);
+
+            // let
+            let y = 5;
+            y = 15;
+
+            // let y = 25;
+
+            // 변수의 범위(추가 설명)
+            {
+                let y = 35;
+            }
+
+
+            // const : 상수(Constant)
+            const c = 10;
+            console.log(c);
+
+            // c = 20; //TypeError: Assignment to constant variable.
+
+
+            
+       </script> 
+    </body>
+</html>

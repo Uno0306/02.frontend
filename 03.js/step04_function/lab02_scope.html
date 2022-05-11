@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>lab02_scope.html</title>
+    </head>
+    <body>
+        <script>
+            // 변수의 유효범위 {}
+            // let, const : 블록 스코프
+            let scope1 = 10;
+            {
+                let scope1 = 20;
+                // console.log(scope1);
+            }
+            // console.log(scope1);
+
+            // 외부 -> 내부
+            let scope2 = 30;
+            {
+                // console.log(scope2);
+            }
+
+            // 내부 -> 외부  (error)
+            // {
+            //     let scope3 = 40;
+            // }
+            // console.log(scope3);
+
+
+            // var : 함수 스코프
+            {
+                var scopeVar = 50;
+            }
+            // console.log(scopeVar);  // 블록 스코프가 의미가 없음
+
+            var scopeVar2 = 60;
+            // console.log(scopeVar2);
+            (function(){
+                scopeVar2++;
+            })();
+            // console.log(scopeVar2)
+
+            // (function(){
+            //     var scopeVar3 = 70;
+            //     console.log(scopeVar3);
+            // })();
+            // console.log(scopeVar3);
+
+            // hoisting : 끌어 올리다.
+            // console.log(hoist);
+            // var hoist = "hoist(var)";
+
+            // hoist : let
+            // console.log(hoistLet);
+            // let hoistLet = 'hoist(let)';
+
+            // 함수의 선언식과 표현식의 차이점
+            // 함수의 선언식만이 호이스팅이 가능하다!
+            print1();
+
+            function print1(){
+                console.log('print1');
+            }
+
+
+            // print2()
+            // var print2 = function(){
+            //     console.log('print2')
+            // }
+
+
+        </script>
+    </body>
+</html>

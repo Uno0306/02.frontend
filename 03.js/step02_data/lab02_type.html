@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>lab02_type.html</title>
+    </head>
+    <body>
+       <script>
+            // js의 자료형은 동적 타입(변수에 할당되는 데이터 타입이 정해져 있지 않은 상태)
+
+            // 기본(원시: primitive) VS 객체(reference)
+            // 기본
+                // Number(숫자)
+                console.log(10);    // 양수
+                console.log(-10);    // 음수
+                console.log(10.2);    // 실수
+                console.log(typeof(10.2));  // 타입 확인하기
+                console.log(10/3);
+
+                // NaN : 
+                console.log('Ten'/3);   // NaN
+                console.log(typeof('Ten'/3));   // NaN
+                console.log(typeof('10'/3));   // 실수 출력
+                console.log(typeof('Ten'/'ㅁㅁ'));   // NaN
+
+                // Infinity
+                console.log(10/0);  // Infinity
+                console.log(typeof(10/0));  // Infinity
+
+                // string(문자열)
+                console.log("-----string-----");
+                console.log("큰따옴표 문자열");
+                console.log("큰따옴표 안에 '작은따옴표'");
+                console.log('작은따옴표 안에 "큰따옴표"');
+                // escape
+                console.log("큰따옴표 안에 \"큰따옴표\"");
+                // console.log("한줄 
+                // 띄어쓰기")  //SyntaxError: Invalid or unexpected token
+                
+                // 백틱 `
+                console.log(`한줄
+                띄어쓰기`);  
+                let lecture = "JS";
+                console.log("우리는 JS 학습 중입니다.");
+                console.log("우리는 lecture 학습 중입니다.");
+                console.log("우리는 "+ lecture +" 학습 중입니다.");
+                // 템플릿 리터럴
+                console.log(`우리는 ${lecture} 학습 중입니다.`);
+                
+                // Boolean(불리언) : true/false 2개의 값을 가진다.
+                console.log("-----boolean-----");
+                console.log(true);  // 소문자만 인식 가능
+                console.log(false);
+                
+                // Undefined & Null
+                // undefined : 값이 할당 되지 않은 상태
+                console.log(typeof(def));
+                
+                // null : 어느 자료형에도 속하지 않는 아무런 데이터가 없는 상태
+                console.log(typeof(null));
+                
+                // Symbol : 고유한 값
+                console.log("-----Symbol-----");
+                let a = Symbol();
+                console.log(typeof(a));
+
+                let b = Symbol("js");
+                let c = Symbol("js");
+                console.log(b==c);
+                console.log(b===c);
+
+
+       </script> 
+    </body>
+</html>

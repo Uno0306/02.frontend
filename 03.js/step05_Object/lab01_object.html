@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>lab01_object.html</title>
+    </head>
+    <body>
+        <script>
+            // 객체(Object) : 존재하는 사물의 실체, 속성/기능(동작)
+
+            // 1. 리터럴 
+            let obj1 = {};
+            // console.log(obj1);
+            // console.log(typeof(obj1));
+            obj1.id = 1;
+            obj1.name = "js1";
+            // console.log(obj1);
+
+
+            let obj2 = {id : 1, name : 'js1'};
+            // console.log(obj2);
+
+            // 2. 생성자 함수
+            let obj3 = new Object();
+            // console.log(obj3);
+            // console.log(typeof(obj3));
+
+            // 3. 시용자 정의 생성자 함수
+            function Customer(id, name){
+                // step01
+                // this.id = 1;
+                // this.name = 'js1';
+
+                // step02(obj5 이루 수정)
+                this.id = id;
+                this.name = name;
+
+                // 함수 메서드
+                this.getName = function(){
+                    return this.name;
+                }
+
+            }
+
+            let obj4 = new Customer();
+            // console.log(typeof(obj4));
+            // console.log(obj4);
+
+            // - 문제
+            let obj5 = new Customer();
+            // console.log(typeof(obj5));
+            // console.log(obj5);
+
+            // console.log(obj4 == obj5);
+
+            let obj6 = new Customer(1, "js1");
+            let obj7 = new Customer(2, "js2");
+            // console.log(obj6);
+            // console.log(obj7);
+            
+            // console.log(obj7.getName());
+
+            obj7.grade= "vip";
+            // console.log(obj7);
+            
+            // property 삭제
+            delete obj7.grade;
+            // console.log(obj7);
+
+            // 객체 정보 반환
+            // console.log(obj7);
+            // console.log(obj7.id);
+            // console.log(obj7.grade);
+            
+            // console.log(obj7['id']);
+            // console.log(obj7['grade']);
+            
+            // console.log(Object.entries(obj7));
+            // console.log(Object.keys(obj7));
+            // console.log(Object.values(obj7));
+
+            // for ~ in
+            for(let info in obj7){
+                // console.log(info + ":  " + obj7[info]);
+            }
+
+            // 화살표 함수 변환
+            function Cat(name, age){
+                this.name = name;
+                this.age = age;
+            }
+
+            // let Cat = (name, age) => {
+            //     this.name = name;
+            //     this.age = age;
+            // }
+
+            let c = new Cat('js1', 3);
+            // console.log(c);
+            
+            // toString은 정의가 되어 있지 않은데 어떻게 사용 가능한가?
+            // console.log(c.toString());
+
+            // prototype
+            // console.log(Cat.prototype);
+            // console.log(Cat.prototype.toString());
+            // console.log(Cat.prototype.constructor);
+            
+            // console.log(Cat.prototype.name);
+            // console.log(Cat.prototype.age);
+            
+            Cat.prototype.id = 1;
+            // console.log(Cat.prototype.id);
+
+            // Object
+            // console.log(Object.prototype);
+            // 모든 객체의 최상위, prototype = 객체의 전반적인 정보가 담긴 설계도 
+            // 모든 객체는 Objectd의 prototype을 통해 객체의 정보를 사용하고 있다.
+            // 따라서 모든 객체는 Object를 상속받고 있다.
+
+            //instanceof
+            // 객체가 상속을 받고있는지 상태를 보는것
+            // 좌측 instanceof 우측 -> 참이면 true
+            // console.log(c instanceof Cat);
+            // console.log(c instanceof Object);
+
+            // prototype을 통한 상속
+            function Person(){};
+            Person.prototype.getPlanet = function(){
+                console.log("Earth");
+            }
+
+            function Korean(region){
+                this.region = region;
+                this.getLoc = function(){
+                    console.log(this.region);
+                };
+            }
+
+            const k = new Korean("Busan");
+            // k.getPlanet();
+            console.log(k instanceof Korean);
+            console.log(k instanceof Person);
+
+            Korean.prototype = Person.prototype;
+            const k2 = new Korean("Busan");
+            k2.getPlanet();
+            console.log(k2 instanceof Korean);
+            console.log(k2 instanceof Person);
+
+
+
+        </script>
+    </body>
+</html>
