@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>lab04_number.html</title>
+    </head>
+    <body>
+        <script>
+            // Number() : 문자열을 숫자로 변환/반환
+            let strNum = "10";
+            let strNaN = "Ten";
+
+            console.log(typeof Number(strNum));
+            console.log(Number(strNaN));
+
+            // parseXXX()
+            // 문자열 -> 숫자
+            // parseInt() : 소수점을 제외하고 정수로 반환
+            console.log(parseInt(3.14));
+            console.log(parseInt(3.54));
+            console.log(parseInt("3"));
+         
+            // parseFloat() : 소수점을 제외하고 정수로 반환
+            console.log(parseFloat("6.89"));
+            console.log(parseFloat(3));
+         
+
+            // Number.toFixed() : 지정한 소수점 자리까지만 남김
+            let fixedNum = 3.141592;
+            console.log(fixedNum.toFixed(3));
+        </script>
+    </body>
+</html>

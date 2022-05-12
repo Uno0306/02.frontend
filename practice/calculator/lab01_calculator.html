@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div id="dom">
+        <h1>Title</h1>
+        <div id="result">result</div>
+        <input type="number" id="input">
+        <input type="text" id="output" readonly><br>
+        <div id="result2">result</div>
+        <button id = btn-up class="btn" name="up-button">up</button>
+        <button id = btn-bottom class="btn" name="down-button">bottom</button>
+    </div>
+
+    <script>
+        const hElement = document.getElementsByTagName('h1')[0];
+        const resultElement = document.getElementById('result');
+        const result2Element = document.getElementById('result2');
+        const inputElement = document.getElementById('input');
+        const outputElement = document.getElementById('output');
+        const btnupElement = document.getElementById('btn-up');
+        const btnbottomElement = document.getElementById('btn-bottom');
+        
+        var sum = 0;
+        
+        hElement.innerHTML = "CALCULATOR";
+        resultElement.innerHTML = 0;
+        result2Element.innerHTML = 0;
+        inputElement.innerHTML = 0;
+        outputElement.innerHTML = 0;
+        btnupElement.innerHTML = "+";
+        btnbottomElement.innerHTML = "-";
+        
+
+     
+        var sum = 0;
+
+        btnupElement.addEventListener('click', () => {
+            resultElement.innerHTML =  (Number)(resultElement.innerHTML) + 1;
+            console.log("plus");
+            // resultElement.innerHTML =  parseInt(resultElement.innerHTML) +1;
+            // outputElement.setAttribute("value", sum);
+            console.log(inputElement.value);
+            // console.log(e.key);
+            console.log("1.  " + isNaN(inputElement.value));
+            console.log("2.  " + isNaN(inputElement.innerHTML));
+            console.log("3.  " + isNaN(1));
+            console.log("4.  " + isNaN(""));
+            
+            if(inputElement.innerHTML === undefined || isNaN(inputElement.innerHTML) || (inputElement.innerHTML === "") || (inputElement.innerHTML === null)){
+                inputElement.value = 0;
+                console.log("if 안 " + inputElement.value);
+            }else{
+                console.log("else 안 " + inputElement.value);
+                sum = sum + parseInt(inputElement.value);
+                console.log("else 안 " + sum);
+            }
+            outputElement.setAttribute("value", sum );
+
+        });
+        
+        btnbottomElement.addEventListener('click', () => {
+            resultElement.innerHTML -= 1;
+            console.log("minus");
+            console.log(inputElement.value);
+            sum = sum - parseInt(inputElement.value);
+            outputElement.setAttribute("value", sum );
+        });
+        
+
+        inputElement.addEventListener('keydown', (event) => {
+            result2Element.innerHTML += event.key;
+            
+            console.log(" ")
+        });
+
+        // minusElem.addEventListener('click', () => {
+        //     sum = parseInt(num1Elem.innerHTML) - parseInt(num2Elem.innerHTML)
+        //     resultElem.innerHTML = sum;
+        // })
+        
+        // const Regex  = /^[0-9]+$/;
+        // num1Elem.addEventListener('keydown', (e) => {
+        //         num2Elem.innerHTML.value += parseInt(e.key);
+        //         result2Elem.innerHTML = parseInt(result2Elem.innerHTML) +  e.key;
+        
+
+        // })
+
+        
+
+    </script>
+</body>
+</html>

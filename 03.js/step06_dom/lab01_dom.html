@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>lab01_dom_html</title>
+        <style>
+            .blue{
+                color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="dom">
+            <h1>Title</h1>
+            <div id="result">result</div>
+            <button id = btn-up class="btn" name="up-button">up</button>
+            <button id = btn-bottom class="btn" name="down-button">bottom</button>
+        </div>
+        <script>
+            // DOM 문서 객체 모델(Document Object Model)
+            // : 웹페이지의 모든 컨텐츠를 객체로 표현하는 모델
+
+            // DOM 트리 : DOM을 계층적으로 표현, 계츨적인 단위 Node(노드 , 관계성 개념)
+
+            // : 웹 페이지 자체, 따라서 모든 HTML요소에 접근하기 위해서는 Document 객체로부터 시작
+            
+            // : DOM Selection(선택)
+            // DOC
+            // document.body.style.background = 'gold';
+
+            // getElementXXX
+            // getElementById
+            const domElement = document.getElementById("dom");
+            // console.log(domElement);
+
+            // getElementsByClassName
+            const btnElement = document.getElementsByClassName("btn");
+            // console.log(btnElement);
+
+            // getElementsByTagName
+            const divTags = document.getElementsByTagName('div');
+            // console.log(divTags);
+
+            // getElementsByName
+            const upBtn = document.getElementsByName("up-button");
+            // console.log(upBtn);
+
+            // querySelector
+            const btnElements = document.querySelector('.btn');
+            // console.log(btnElements);
+            
+            // querySelectorAll
+            const btnElements2 = document.querySelectorAll('.btn');
+            // console.log(btnElements2);
+
+
+            // 노드를 통한 접근
+                // 종류
+                    // 문서 노드
+                    // 요소 노드
+                    // 속성 노드
+                    // 텍스트 노드
+                    // 주석 노드
+
+
+            // 관계성
+                // 조상(상위) / 부모 parentNode
+                // 자손(하위) / 자식 childNodes, firstChild, lastChild
+                // 형제 : nextSibilling, previousSibiling
+
+
+            // console.log(document.childNodes);
+            // console.log(document.childNodes[1]);
+            // console.log(divTags.childNode); // undefined
+            // console.log(domElement.nextElementSibling);
+            // console.log(document.childNodes[1].childNodes[2]);
+            // 노드로 특정 요소에 접근하는 것은 어렵다. 따라서 주의해서 사용해야 한다.
+
+            // DOM Manipulation(조작)
+            // document
+            const hrElement = document.createElement('hr');
+            // document.write('hr');
+
+            // 변경
+            // setAttribute 
+            // domElement.setAttribute('a', 'b');
+            // domElement.setAttribute('class', 'dom-class');
+
+            // appendChild
+            const resultElement = document.getElementById('result');
+            resultElement.appendChild(hrElement);  
+
+            // removeChild / removeAttribute
+
+            // resultElement.innerHTML = '<strong>innerHTML</strong>';
+            // resultElement.innerText = '<strong>innerText</strong>';
+
+            // domElement.id = 'dom2';
+
+            // resultElement.style.fontSize = '40px';
+
+            // resultElement.classList.add('blue');
+            resultElement.style.color = 'gold';
+
+
+            // BOM Browser Object Model
+            // 자바스크립트를 이용하여 브라우저를 제어 가능하도록 설정하느 객체모델
+            // alert('1');
+            // prompt();
+
+            // console.log(location);
+
+            // setTimeout : 일정 시간 후에 함수를 실행하는 메서드
+            setTimeout(print, 2000);    // 2초 뒤에 실행하는 메서드(단위: ms) - 1번 실행
+            
+            function print(){
+                console.log("print setTimeout");
+            }
+            // setInterval(print, 2000);    // 2초 뒤에 실행하는 메서드 - 계속 반복
+
+        </script>
+    </body>
+</html>

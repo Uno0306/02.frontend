@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>lab05_date.html</title>
+    </head>
+    <body>
+        <script>
+            // Date : 현재 날짜 및 시각을 참조하는 객체
+            console.log(new Date());
+
+            let dateObj = new Date();
+            console.log(dateObj);
+            console.log(dateObj.getFullYear());
+            console.log(dateObj.getMonth());    // getMonth()는 0부터 시작
+            console.log(dateObj.getDate());
+            console.log(dateObj.getDay());      // getDay()는 0부터 시작
+            console.log(dateObj.getHours());
+            console.log(dateObj.getMinutes());
+            console.log(dateObj.getSeconds());
+
+            // 2020년 6월 1일 출력하기
+            console.log(new Date(2020, 5, 1));
+            console.log(new Date("2020-06-01"));    // 문자열도 반환
+            console.log(new Date("2020/06/01"));  
+            console.log(new Date("20-06-01"));  
+            
+            // Date.parse(str) : 문자열에서 날짜 타입으로 변경
+            // 단, 형식은 YYYY-MM-DDTHH:mm:ss
+            // "2020-06-01T09:00:00"
+            console.log(Date.parse("2020-06-01T09:00:00"));
+            console.log(new Date(Date.parse("2020-06-01T09:00:00")));
+
+        </script>
+    </body>
+</html>

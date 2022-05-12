@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>lab02_event_html</title>
+        <style>
+            .hide{
+                display: none;
+            }
+            .invalid{
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1>Menu</h1>
+            <div id="describe">설명</div>
+            <hr>
+            
+            <h3>서비스</h3>
+            <button id="check" class="tab" name="checkName">조회</button>
+            <button id="transfer" class="tab">이체</button>
+            <ul class="checkService hide">
+                <li>계좌조회</li>
+                <li>어음수표조회</li>
+                <li>오픈뱅킹업무</li>
+            </ul>
+            
+            <p id="content"></p>
+            <p id="content2"></p>
+            <hr>
+    
+            <h3>기입</h3>
+            이메일 : <input type="email" name="email" id="email">
+            <div id="invalidMsg"></div>
+            <div id="emailOutput"></div>
+        </div>
+        <script>
+            // event
+
+            // 이벤트 적용 문법
+            const describeElement = document.getElementById('describe');
+            const checkElement = document.getElementById('check');
+            const contentElement = document.querySelector('#content');
+            // console.log(contentElement);
+            const contentElement2 = document.querySelector('#content2');
+            // console.log(contentElement2);
+            const checkServiceElement = document.querySelector(".checkService");
+            // console.log(checkServiceElement);
+            const emailElement = document.getElementById('email');
+            // console.log(emailElement);
+            const invalidMsg = document.getElementById('invalidMsg');
+            // console.log(invalidMsg);
+
+
+
+            // 1. 인라인 방식
+            // console.log(describeElement);
+            // function clickFunc(){
+            //     describeElement.innerHTML = '계좌조회 서비스';
+            // };
+
+            // 2. 프로퍼티 방식
+            
+            // checkElement.onclick = function clickFunc(){
+            //     contentElement.innerHTML = '계좌조회 서비스2';
+            // };
+            
+            // checkElement.onclick = function clickFunc(){
+            //     describeElement.innerHTML = '계좌조회 서비스';
+            // };
+
+            // 3. eventhandler
+            // checkElement.addEventListener('click', function clickFunc(){
+            //     describeElement.innerHTML = '계좌조회 서비스';
+            // } );
+
+            // checkElement.addEventListener('click', function clickFunc(){
+            //     contentElement.innerHTML = '계좌조회 서비스2';
+            // } );
+
+            // version 1
+            checkElement.addEventListener('click', function clickFunc(){
+                describeElement.innerHTML = '계좌조회 서비스';
+                contentElement.innerHTML = '계좌조회 서비스2';
+            } );
+
+            // version 2
+            checkElement.addEventListener('click', () => {
+                describeElement.innerHTML = '계좌조회 서비스';
+                contentElement.innerHTML = '계좌조회 서비스2';
+            } );
+
+
+            // 이벤트 종류
+            // MouseEvent : click, dbclick, mouseup, mousedown, etc...
+            // console.log(checkServiceElement.classList.contains("hide"));
+            checkElement.addEventListener("mouseover", () => {
+                checkServiceElement.classList.remove("hide")
+            });
+
+            checkElement.addEventListener("mouseout", () => {
+                checkServiceElement.classList.add("hide")
+            });
+
+
+            // FocusEvent : focus, focusin, focusout, etc...
+            // 이메일 입력 -> @ 없을 경우에 : 이메일 형식이 올바르지 않음
+            emailElement.addEventListener("focus", () => {
+                // emailElement.style.background = "yellow";    // 잘 적용되는 지 확인
+                
+            })
+
+            emailElement.addEventListener("blur", () => {
+                // emailElement.style.background = "blue";    // 잘 적용되는 지 확인
+                if(emailElement.value.includes("@")){   // email이 @란 값을 가지고 있다면
+                    // 아무 일 없어도 됨
+                    invalidMsg.innerHTML = "";
+                } else{
+                    invalidMsg.innerHTML = '이메일 형식이 올바르지 않음';
+                    invalidMsg.classList.add('invalid');
+                }
+            })
+
+
+            // KeyboardEvent : keydown, keypress, keyup, ...
+            const emailOutput = document.getElementById('emailOutput');
+            emailElement.addEventListener('keydown', (event) => {
+                emailOutput.innerHTML += event.key;
+            });
+
+
+        </script>
+        
+    </body>
+</html>

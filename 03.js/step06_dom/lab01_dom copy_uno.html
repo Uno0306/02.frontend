@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>lab01_dom copy_html</title>
+        <style>
+            .blue{
+                color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="dom">
+            <h1>Title</h1>
+            <div id="result">result</div>
+            <button id = btn-up class="btn" name="up-button">up</button>
+            <button id = btn-bottom class="btn" name="down-button">bottom</button>
+        </div>
+        <script>
+            const hElement = document.getElementsByTagName('h1')[0];
+            const resultElement = document.getElementById('result');
+            const btnupElement = document.getElementById('btn-up');
+            const btnbottomElement = document.getElementById('btn-bottom');
+            console.log(hElement);
+            console.log(resultElement);
+            console.log(btnupElement);
+            console.log(btnbottomElement);
+
+            function change(){
+                hElement.innerHTML = "PLUS-MINUS";
+                resultElement.innerHTML = 0;
+                btnupElement.innerHTML = "+1";
+                btnbottomElement.innerHTML = "-1";
+            };
+            change();
+
+            btnupElement.addEventListener('click', () => {
+                resultElement.innerHTML =  (Number)(resultElement.innerHTML) +1;
+                // resultElement.innerHTML =  parseInt(resultElement.innerHTML) +1;
+                console.log("plus");
+            });
+            
+            btnbottomElement.addEventListener('click', () => {
+                resultElement.innerHTML -= 1;
+                console.log("minus");
+            });
+
+
+
+
+        </script>
+    </body>
+</html>
