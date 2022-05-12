@@ -116,13 +116,17 @@
 
             emailElement.addEventListener("blur", () => {
                 // emailElement.style.background = "blue";    // 잘 적용되는 지 확인
-                if(emailElement.value.includes("@")){   // email이 @란 값을 가지고 있다면
-                    // 아무 일 없어도 됨
-                    invalidMsg.innerHTML = "";
-                } else{
+                // if(emailElement.value.includes("@")){   // email이 @란 값을 가지고 있다면
+                //     // 아무 일 없어도 됨
+                //     invalidMsg.innerHTML = "";
+                // } else{
+                //     invalidMsg.innerHTML = '이메일 형식이 올바르지 않음';
+                //     invalidMsg.classList.add('invalid');
+                // }
+                if(!emailElement.value.includes("@")){   // email이 @란 값을 가지고 있다면
                     invalidMsg.innerHTML = '이메일 형식이 올바르지 않음';
                     invalidMsg.classList.add('invalid');
-                }
+                } 
             })
 
 
