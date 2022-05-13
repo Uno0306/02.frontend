@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab01_apply.html</title>
+</head>
+<body>
+    <script>
+        // 삼항 연산자
+        // 조건 ? true : false
+
+        const arr = [1];
+        // if(arr.length === 0) {
+        //     console.log('요소가 없는 배열');
+        // }else{
+        //     console.log('요소가 있는 배열');
+        // };
+
+        // arr.length === 0 ? console.log('요소가 없는 배열') : console.log('요소가 있는 배열');
+
+        // Truthy / Falsy
+        let person = {
+            name: 'js'
+        }
+
+        // function printName(person) {
+        //     console.log(person.name);
+        // }
+        printName(person);  // 정상 출력
+        
+        printName();    // cannot read properties of undefined
+        
+        // 수정
+        function printName(person){
+            if(person === undefined){
+                return;
+            }
+            // console.log(person.name);
+        }
+        printName();    // 수정 후 문제 없음
+        
+        // 만약에 const person = null?
+        person = null;
+        
+        // 다시 함수 수정
+        function printName(person){
+            // ver1
+            // if(person === undefined || person === null){
+            //     return;
+            // }
+            // console.log(person.name);
+
+            // ver2
+            if(!person){
+                return;
+            }
+            // console.log(person.name);
+        }
+        
+        printName(person);  // 재수정 후 문제 없음
+        // var2로 바꿨을 때에 문제없이 실행 가능 -> 왜 가능한가?
+
+
+        // falsy : false처럼 행동하는 값, 이 외의 모든 값들은 truthy 값이다.
+        // console.log(!false);
+        // console.log(!undefined);
+        // console.log(!null);
+        // console.log(!0);
+        // console.log(!"");
+        // console.log(!NaN);
+        
+        // console.log(!3);
+        // console.log(!"js");
+        // console.log(![]);   // 배열도 truthy
+        // console.log(!{});   // 객체도 truthy
+
+        let v = {};
+
+        if(v){
+            // console.log("truthy한 값이다.");
+        }
+
+        // console.log(v? true: false);
+
+        // 만약에 let v = null;?
+        v = null;
+
+        // console.log(v? true : false);
+
+        // console.log(!v);
+
+        // 부정연산자를 2개를 사용하면 객체 자체가 갖고 있는
+        // 참 혹은 거짓인 값을 출력해준다.
+        // console.log(!!v);
+
+
+        // && || 논리연산자 사용
+        true && true    // true
+        true && false   // false
+        true || false   // true
+
+        let cat = {
+            name: 'milo'
+        };
+
+        // 고양이 객체의 이름을 출력할 수 있는 함수 getName
+        function getName(cat){
+            // ver1
+            // if(cat){
+            //     return cat.name;
+            // }
+            // return undefined;
+
+            // ver2
+            return cat && cat.name;
+        };
+
+        // console.log(getName(cat));
+        // console.log(getName());
+
+        // ver2는 왜 사용 가능한가?
+        // console.log(true && "js");  // 'js' 문자열은 truthy한 값이기 때문에 적용
+        // console.log(false && "js");  
+        // console.log("java" && "js");  
+        // console.log(undefined && "js");  
+        // console.log(0 && "js");  
+
+        // let obj = {id: "js"};
+        // console.log(obj && obj.id);
+
+        // ||
+        person = {
+            name: "js"
+        };
+
+        function getName(){
+            // ver1
+            // let name = person && person.name;
+            // if(!name){
+            //     return "이 객체는 이름이 없음";
+            // }
+            // return name;
+
+            // ver2
+            return name || "이 객체는 이름이 없음"
+        };
+
+        // console.log(getName(person));
+
+        // 그런데 person = {name : null}; 로 바뀐다면?
+        person = {
+            name : null
+        };
+        // console.log(getName(person));
+
+        // ? ver2가 가능한 이유
+        // console.log(false || 'js');
+        // console.log('' || 'js');
+        // console.log(null || 'js');
+        // console.log(undefined || 'js');
+        // console.log(0 || 'js');
+        // console.log(NaN || 'js');
+        
+        // console.log(1 || 'js');
+        // console.log(true || 'js');
+        // console.log("js0" || 'js');
+        // console.log({} || 'js');
+
+
+        // 함수 파라미터
+        // 원의 넓이를 구하는 함수
+        function calCircleArea(r){
+            return Math.PI * r*r;
+        }
+
+        // console.log(calCircleArea(3)); 
+ 
+        // 만약에 인자값이 없이 함수를 호출했다면?  // NaN
+        // console.log(calCircleArea()); 
+        
+        // 따라서 인자값이 없을 때에는 출력이 되도록
+        // 기본 r값을 1로 지정
+        // 앞서 배웠던 &&, || 논리연산자 사용해서
+        // 아래의 함수를 위의 조건에 맞게 바꿔주기
+        // ver1
+        function calCircleArea(r){
+            // if(!r){
+            //     r = 1;
+            // }
+            // if(r === NaN || r === null || r === undefined || r === 0 || r === '' ){
+            //     r = 1;
+            // }
+            // r = !r || r;
+            let radius = r;
+            radius = r || 1;
+            return Math.PI * radius * radius;
+        }
+
+        function calCircleArea(r){
+            // r = !r || r;
+            return Math.PI * r * r;
+        }
+
+        // ver2
+        function calCircleArea(r = 1){
+            return Math.PI * r * r;
+        }
+
+        // 함수의 파라미터에 기본 값을 초기화할 수 있다.
+        calCircleArea = (r = 1) => Math.PI * r * r;
+
+        function calCircleArea(r){
+            r = !r || r;
+            return Math.PI * r * r;
+        }
+
+        // console.log(calCircleArea()); 
+            
+
+        // 파라미터(parameter) vs 인자(argument)
+        // 파라미터 : 함수를 정의할 때 사용하는 소괄호 내에 사용하는 변수()
+        // 인자 : 함수를 호출할 때 사용하는 소괄호 내에 사용하는 변수()
+
+        // 조건문 활용
+        // checkMonth() : (Ver1) month가 존재하는 지 여부를 판단하는 함수
+        // ver1
+        function checkMonth(month){
+            // ver1-1
+            // if(month === 1 || month === 2){
+            //     return tru;
+            // }
+            // return false;
+
+            // ver1-2
+            // return (month === 1 || month === 2);
+
+            // ver1-3
+            let months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+            return months.includes(month);
+        }
+
+        // console.log(checkMonth(1));
+        // console.log(checkMonth(13));
+
+
+
+        // getMonth(month)
+        function getMonth(month){
+            // ver1
+            // if(month === 1){return "1월";}
+            // if(month === 2){return "2월";}
+            // if(month === 3){return "3월";}
+
+            // ver2
+            // switch(month){
+            //     case 1: 
+            //         return "1월";
+            //     case 2: 
+            //         return "2월";
+            //     case 3: 
+            //         return "3월";
+            // }
+
+            // ver3
+            let months = {
+                1: "1월",
+                2: "2월",
+                3: "3월"
+            }
+
+            // 완성하기, 해당월이 없다면
+            // "해당 월이 없습니다" 문자열 출력
+            return months[month] || "해당 월이 없습니다." ;
+        }
+
+        // console.log(getMonth(3));
+        // console.log(getMonth(4));
+        
+
+        // 비구조화 문법
+        let obj = {x: 1, y: 2};
+
+        let {x, y} = obj;
+
+        // console.log(x);
+        // console.log(y);
+
+
+        function printValue({x, y}){
+            console.log(x);
+            console.log(y);
+        };
+        
+        // printValue(obj);
+        
+        // 만약에 obj = { x: 1};
+        obj = {x: 1};
+        
+        // printValue(obj);
+        
+        function printValue({x, y}){
+            console.log(x);
+            console.log(y || 2);
+        };
+        
+        // printValue(obj);
+
+
+        // 배열
+        let arr2 = [1, 2];
+        // console.log(arr2[0]);
+        // console.log(arr2[1]);
+        
+        let [one, two] = arr2;
+        // console.log(one);
+        // console.log(two);
+
+
+        // 객체 깊은 데이터
+        let deepObj = {
+            info: {
+                private: {
+                    name: 'js',
+                    age: 17,
+                    hobbies: ['prgramming', 'studying']
+                }
+            },
+            purpose: undefined
+        }
+
+        // ? 직접 해보기
+        // let {name, age, hobbies} = deepObj.info.private;
+        // let {purpose} = deepObj;
+
+
+        // console.log(name, age, hobbies[0]);  
+        // js, 17, ['prgramming', 'studying']  
+
+        // let pickedObj = {
+        //     name,
+        //     age,
+        //     hobbies
+        // };  // value 설정 안 해줘도 됨
+        
+        // console.log(pickedObj);
+
+
+        // 상황에 따라 사용하기 (추천하진 않음)
+        // let{
+        //     info: {
+        //         private: {
+        //             name,
+        //             age,
+        //             hobbies: [first, second]
+        //         }
+        //     },
+        //     purpose
+        // } = deepObj;
+
+        // console.log(name, age, hobbies, purpose);  
+        // console.log(first);
+        // console.log(second);
+        // console.log(hobbies);  
+
+        // spread, rest
+        // spread : ...
+        let planet = {
+            continent: 'Asia'
+        };
+
+        // let country = {
+        //     // continent: 'Asia',
+        //     ...planet,
+        //     country_name: 'ROK'
+        // };
+
+        // let city = {
+        //     // continent: 'Asia',
+        //     // country_name: 'ROK',
+        //     ...country,
+        //     region: 'Busan'
+        // };
+
+        // console.log(planet);
+        // console.log(country);
+        // console.log(city);
+
+        // 배열 spread 
+        let arr3 = [1, 2, 3];
+        let arr4 = [...arr3, 5];
+
+        // console.log(arr4);
+        // console.log(arr3);
+
+
+        // rest : ...
+        // 객체
+        let city = {
+            continent: 'Asia',
+            country_name: 'ROK',
+            region: 'Busan'
+        };
+        let { region, ...country} = city;
+        // console.log(region);
+        // console.log(country);
+
+        // 배열
+        // let etc = [0, 1, 2];
+        let nums = [1, 2, 3, 4, 5];
+        let [first, ...etc] = nums;
+        // console.log(first);
+        // console.log(etc);
+        // console.log(etc2);
+
+
+
+        // 다시 하는 함수 파라미터
+        function sum(...rest){
+            // console.log(rest);
+            // reduce((초기값, 현재값) => (식: 초기값 + 현재값), 처음 값: 0)
+            return rest.reduce((acc, current) => (acc + current), 0 );  
+        }
+
+        // console.log(sum(1, 2, 3, 4, 5, 6, 7, 8));
+
+        let arr5 = [1, 2, 3, 4, 5];
+        // console.log(sum(...arr5));
+
+
+
+        // 상속
+        // 1. 프로토타입
+        // function Parent(name, age) {
+        //     this.name = name;
+        //     this.age = age;
+        // };
+
+        // function Child(name, age) {
+        //     this.name = name;
+        //     this.age = age;
+        // };
+
+        // Child.prototype=Parent.prototype;
+
+        // let p1 = new Parent("p1", 31);
+        // let c1 = new Child("c1", 1);
+
+        // console.log(p1);
+        // console.log(c1);
+
+        // Parent.prototype.getName=function(){
+        //     console.log(this.name);
+        // }
+        // c1.getName();
+        // p1.getName();
+        
+
+        // 2. 
+        // function Parent(name, age){
+        //     this.name = name;
+        //     this.age = age;
+        // }
+        
+        // function Child(name, age){
+        //     this.name = name;
+        //     this.age = age;
+        // }
+        
+        // Child.prototype = {...Parent.prototype};
+        // let p1 = new Parent("p1", 31);
+        // let c1 = new Child("c1", 1);
+        
+        // Child.prototype.getName = function (){
+        //     console.log(this.name);
+        // };
+        
+        // Parent.prototype.getAge = function(){
+        //     console.log(this.age);
+        // }
+        // let p2 = new Parent("p2", 32);
+        // let c2 = new Child("c2", 2);
+
+        // console.log(p2);
+        // console.log(c2);
+
+        // c2.getName();
+        // p2.getName();
+
+        // p2.getAge();
+        // c2.getAge();
+
+        
+
+        // 3.
+        // function Parent(name, age) {
+        //     this.name = name;
+        //     this.age = age;
+        // };
+
+        // function Child(name, age) {
+        //     this.name = name;
+        //     this.age = age;
+        // };
+
+        // Child.prototype = Object.create(Parent.prototype);
+
+        // Child.prototype.getName = function (){
+        //     console.log(this.name);
+        // }
+
+        // Parent.prototype.getAge = function (){
+        //     console.log(this.age);
+        // }
+
+        // let p3 = new Parent("p3", 33);
+        // let c3 = new Child("c3", 3);
+
+        // c3.getName();
+        // c3.getAge();
+        // p3.getAge();
+        // p3.getName();    // 에러
+
+        // 체크
+        // console.log(p3.__proto__.constructor);
+        // console.log(c3.__proto__.constructor);
+        
+        // c3.__proto__.constructor = Child;
+        // console.log(c3.__proto__.constructor);
+
+
+        // 4. class를 통한 상속
+        class Parent{
+            constructor(name, age){
+                this.name = name;
+                this.age = age;
+            }
+            getAge(){
+                console.log(this.age);
+            }
+        };
+
+        class Child extends Parent{
+            constructor(name, age){
+                super(name, age);
+            }
+            getName(){
+                console.log(this.name);
+            }
+        };
+
+        let p4 = new Parent("p4", 34);
+        let c4 = new Child("c4", 4);
+
+        // p4.getName();    // 사용 불가
+        c4.getAge();
+
+    </script>
+</body>
+</html>

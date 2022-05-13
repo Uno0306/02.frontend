@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>lab02_json.html</title>
+    </head>
+    <body>
+        <script>
+            // JSON : JavaScript Object Notation, 문자열의 형태로 데이터를 주고 받는 포맷
+            //      : 내장객체(js 운뎡되는 전역(global) 접근 가능)
+            //      : key:value 한 쌍으로 구성, ""따옴표가 붙어 있는 상태
+
+            // JSON.stringify : 객체를 JSON으로 변경 -> 직렬화[serialization]
+            // 객체, 배열, 문자형, 숫자형, boolean(true/false), null
+            //* 함수, 심볼, undefined : 적용 안됨
+
+            let obj1 = {name: "js"};
+            // console.log(obj1);
+            // console.log(obj1.name);
+            
+            let obj2 = "{'name': 'js'}";
+            // console.log(obj2);
+            // console.log(obj2.name); // undefined
+
+            // JSON.stringify
+            let obj3 = JSON.stringify(obj1);
+            // console.log(obj3);
+            // console.log(typeof obj3);
+
+
+            let deepObj = {
+            info: {
+                private: {
+                    name: 'js',
+                    age: 17,
+                    hobbies: ['prgramming', 'studying']
+                }
+            },
+            purpose: undefined
+            };
+
+            // console.log(JSON.stringify(deepObj));
+
+
+            // JSON.parse -> 문자열 -> 객체 (역직렬화[Deserialization])
+            // let obj4 = JSON.parse(obj2);    // Unexepected
+            let obj5 = {"name" : "js"};
+            let obj6 = '{"name" : "js"}';
+
+            // console.log(obj5);
+            // console.log(obj6);
+            
+            // let obj55 = JSON.parse(obj5);   // syntax error
+            let obj66 = JSON.parse(obj6);
+            // console.log(obj66);
+            // console.log(typeof obj66);
+
+            let obj7 = '{"name"}';
+            // console.log(obj7);
+            // console.log(typeof obj7);
+            // console.log(JSON.parse(obj7));  // 에러 position
+
+            let obj8 = {};
+            obj8.info = "data";
+
+            // ? 직렬화가 잘될까?
+            console.log(obj8);
+            console.log(typeof obj8);
+            console.log(JSON.stringify(obj8));
+            // console.log(JSON.parse(obj8));
+
+        </script>
+    </body>
+</html>

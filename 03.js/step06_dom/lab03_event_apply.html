@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>lab03_event_apply.html</title>
+        <style>
+            div {
+                border: 2px dashed navy;
+            }
+            button{
+                margin: 20px;
+            }
+            input{
+                margin: 30px 0 20px;
+            }
+            ul{
+                display: flex;
+                border: 2px dashed gold;
+            }
+            ul li{
+                list-style: none;
+                margin: 2px;
+                border: 2px dashed red;
+            }
+        </style>
+    </head>
+    <body>
+        <div><button class="btn">Button</button></div>
+
+
+        <input type="button" value="button2"></input>
+        <a href="https://google.com">google link</a>
+    
+        <ul id="nav">
+            <li id="nav1">Nav 1</li>
+            <li id="nav2">Nav 2</li>
+            <li id="nav3">Nav 3</li>
+            <li id="nav4">Nav 4</li>
+        </ul>
+
+        <script>
+            // event : 이벤트 실행 시 자바스크립트 내부적으로 만들어지는 객체
+            const btnElement1 = document.querySelector(".btn");
+
+            btnElement1.addEventListener('click', () => {
+                // console.log(event);
+                // console.log(this);
+                // console.log(event.target);
+                // console.log(event.currentTarget);
+            });
+
+            // 이벤트 흐름 : 이벤트가 발생하는 HTML 요소는 계층적인 구조로 되어 있기 때문에,
+            //              우리가 알게 모르게 주변 요소에 영향을 미치고 있음
+            //              -> 이벤트 전파(Propagation) 
+            // 이벤트 전파 : 전파 되는 방향을 기분으로 버블링(Bubbling), 캡쳐링(Capturing)이 존재
+
+            const bodyElement = document.querySelector('body');
+            const divElement = document.querySelector('div');
+            const buttonElement = document.querySelector('button');
+
+            // 버블링 : 자식 요소 -> 부모 요소
+            // bodyElement.addEventListener('click', () => {
+            //     console.log('bodyElement');
+            // });
+            // divElement.addEventListener('click', () => {
+            //     console.log('divElement');
+            // });
+            // buttonElement.addEventListener('click', (event) => {
+            //     console.log('buttonElement');
+            //     event.stopPropagation();
+            // });
+
+            
+            // 캡쳐링 : 부모 요소 -> 자식 요소
+            // bodyElement.addEventListener('click', (event) => {
+            //     console.log('bodyElement');
+            // }, true);
+            // divElement.addEventListener('click', () => {
+            //     console.log('divElement');
+            // }, true);
+            // buttonElement.addEventListener('click', () => {
+            //     console.log('buttonElement');
+            // }, true);
+
+
+            // 형제 요소에는 버블링/캡쳐링 X
+            // const InputElement = document.querySelector('input');
+            // InputElement.addEventListener('click', () => {
+            //     console.log('inputElement');
+            // });
+
+            // const linkElement = document.querySelector('a');
+            // linkElement.addEventListener('click', (event) => {
+            //     // console.log('inputElement');
+            //     event.preventDefault();
+            // });
+
+
+            // nav
+            // 각각의 모든 li태그를 클릭했을 때,
+            // 해당 li태그의 텍스트가 출력되도록 하려면
+            // const nav1 = document.querySelector('#nav1');
+            // nav1.addEventListener('click', () => {
+            //     // console.log(nav1.textConetnt);
+            // });
+
+            // -> event
+            // const navElement = document.querySelector('#nav');
+            // navElement.addEventListener('click', (event) => {
+            //     // console.log(navElement.textContent);
+            //     console.log(event.target.textContent);
+            // })
+
+
+
+        </script>
+    </body>
+</html>

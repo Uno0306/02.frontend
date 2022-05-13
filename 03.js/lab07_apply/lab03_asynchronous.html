@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab03_asynchronous.html</title>
+</head>
+
+<body>
+    <script>
+        // 동기[Synchronous] : 요청 결과 응답 후, 다음 동작이 실행되는 방식
+        // console.log(1);
+        // console.log(2);
+        // setTimeout(()=> {
+        //     console.log(2);
+        // }, 3000);
+        // console.log(3);
+
+        // 비동기 : 요청 결과 응답과 별개로 다음 동작이 실행되는 방식
+        // 왜 필요한가? 서버로부터 데이터 세팅, 문제 발생 시 별도로 실행되어야 하는 경우
+
+        // 데이터가 엄청나게 많은 경우에는 일부 데이터만 먼저 가져오고
+        // 추 후, 데이터 필요 시 서버에서 데이터 가져온다.
+
+        // 콜백 함수 Callback function
+        // : 함수의 매개변수로 전달되는 함수 --> 결과적으로 콜백함수는 전달 받은 함수 안에서 호출
+        // function callBack(callBack) {
+        //     setTimeout(() => {
+        //         callBack();
+        //     }, 3000);
+        // };
+
+        // callBack(() => {
+        //     console.log('1초 후에 callBack함수 실행');
+        // });
+
+        // 콜백 지옥
+        // callBack(() => {
+        //     callBack(() => {
+        //         callBack(() => {
+        //             console.log('1초 후에 callBack함수 실행');
+        //         })
+        //     })
+        // });
+
+        // Promise
+        // 전역객체(new X)
+        // console.log(Promise);
+
+        // 문법
+        // new 연산자로 프로미스 객체 생성 가능
+        // 객체 생성시 실행자 함수를 인자로 받아 실행
+        // 프로미스는 진행되는 시점에 따라 상태값을 가짐
+        // 실행자 함수의 종류는 2가지
+        // resolve(), reject()
+        // new Promise((resolve, reject) => {
+
+        // });
+        // 대기[pending] : 프로미스 객체가 생성되어 대기 중인 상태
+
+        // 이행[fullfilled] : resolv()를 실행시켰을 때의 상태
+        // new Promise((resolve, reject) => {
+        //     resolve();
+        // });
+
+        // 거부[rejected] : reject()를 실행시켰을 때의 상태
+        // new Promise((resolve, reject) => {
+        //     reject();
+        // });
+
+        // 1초 후 실행 함수
+        let promiseFunction = new Promise((resolve, reject) => {
+            setTimeout(() => {
+               resolve();
+            }, 1000);
+        });
+
+        console.log(promiseFunction); 
+        promiseFunction.then(() => {
+            console.log("프로미스 실행");
+        });
+
+
+    </script>
+</body>
+
+</html>
