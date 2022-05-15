@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>lab04_example.html</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <button onclick="num(1)">1</button>
+    <button onclick="num(2)">2</button>
+    <button onclick="num(3)">3</button>
+
+    <br><br>
+    <p id="n"></p>
+
+    <script>
+        // -> event
+        // const navElement = document.querySelector('#nav');
+        // navElement.addEventListener('click', (event) => {
+        //     // console.log(navElement.textContent);
+        //     console.log(event.target.textContent);
+        // })
+
+        num = n => {
+            console.log(n);
+
+            axios.get("https://jsonplaceholder.typicode.com/users?userId=" + n)
+                .then(resData => {
+                    console.log(resData);
+                    let v = "";
+                    console.log(v);
+
+                    if (n === 1) {
+                        resData.data.forEach(element => {
+                            if (element.id % 2 === 1) {
+                                v += element.id + '<br>';
+                                v += element.name + '<br>';
+                                v += element.username + '<br>';
+                            }
+                            console.log(v);
+                        })
+                    } else if (n === 2) {
+                        resData.data.forEach(element => {
+                            if (element.id % 2 === 0 ){
+                                v += element.id + '<br>';
+                                v += element.name + '<br>';
+                                v += element.username + '<br>';
+                            }
+                            console.log(v);
+                        })
+                    } else{
+                        resData.data.forEach(element => {
+                            v += element.id + '<br>';
+                            v += element.name + '<br>';
+                            v += element.username + '<br>';
+                            console.log(v);
+                        })
+                    }
+             
+                    document.getElementById("n").innerHTML = v;
+
+                })
+                .catch(error => {
+                    console.log("비정상 응답", error);
+                });
+        };
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,89 +1,409 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>lab03_asynchronous.html</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>lab03_asynchronous.html</title>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    </head>
 
-<body>
-    <script>
-        // 동기[Synchronous] : 요청 결과 응답 후, 다음 동작이 실행되는 방식
-        // console.log(1);
-        // console.log(2);
-        // setTimeout(()=> {
-        //     console.log(2);
-        // }, 3000);
-        // console.log(3);
+    <body>
+        <!--<div id="viewResult"></div>-->
+        <script>
+            // 동기[Synchronous] : 요청 결과 응답 후, 다음 동작이 실행되는 방식
+            // console.log(1);
+            // console.log(2);
+            // setTimeout(()=> {
+            //     console.log(2);
+            // }, 3000);
+            // console.log(3);
 
-        // 비동기 : 요청 결과 응답과 별개로 다음 동작이 실행되는 방식
-        // 왜 필요한가? 서버로부터 데이터 세팅, 문제 발생 시 별도로 실행되어야 하는 경우
+            // 비동기 : 요청 결과 응답과 별개로 다음 동작이 실행되는 방식
+            // 왜 필요한가? 서버로부터 데이터 세팅, 문제 발생 시 별도로 실행되어야 하는 경우
 
-        // 데이터가 엄청나게 많은 경우에는 일부 데이터만 먼저 가져오고
-        // 추 후, 데이터 필요 시 서버에서 데이터 가져온다.
+            // 데이터가 엄청나게 많은 경우에는 일부 데이터만 먼저 가져오고
+            // 추 후, 데이터 필요 시 서버에서 데이터 가져온다.
 
-        // 콜백 함수 Callback function
-        // : 함수의 매개변수로 전달되는 함수 --> 결과적으로 콜백함수는 전달 받은 함수 안에서 호출
-        // function callBack(callBack) {
-        //     setTimeout(() => {
-        //         callBack();
-        //     }, 3000);
-        // };
+            // 콜백 함수 Callback function
+            // : 함수의 매개변수로 전달되는 함수 --> 결과적으로 콜백함수는 전달 받은 함수 안에서 호출
+            // function callBack(callBack) {
+            //     setTimeout(() => {
+            //         callBack();
+            //     }, 3000);
+            // };
 
-        // callBack(() => {
-        //     console.log('1초 후에 callBack함수 실행');
-        // });
+            // callBack(() => {
+            //     console.log('1초 후에 callBack함수 실행');
+            // });
 
-        // 콜백 지옥
-        // callBack(() => {
-        //     callBack(() => {
-        //         callBack(() => {
-        //             console.log('1초 후에 callBack함수 실행');
-        //         })
-        //     })
-        // });
+            // 콜백 지옥
+            // callBack(() => {
+            //     callBack(() => {
+            //         callBack(() => {
+            //             console.log('1초 후에 callBack함수 실행');
+            //         })
+            //     })
+            // });
 
-        // Promise
-        // 전역객체(new X)
-        // console.log(Promise);
+            // Promise
+            // 전역객체(new X)
+            // console.log(Promise);
 
-        // 문법
-        // new 연산자로 프로미스 객체 생성 가능
-        // 객체 생성시 실행자 함수를 인자로 받아 실행
-        // 프로미스는 진행되는 시점에 따라 상태값을 가짐
-        // 실행자 함수의 종류는 2가지
-        // resolve(), reject()
-        // new Promise((resolve, reject) => {
+            // 문법
+            // new 연산자로 프로미스 객체 생성 가능
+            // 객체 생성시 실행자 함수를 인자로 받아 실행
+            // 프로미스는 진행되는 시점에 따라 상태값을 가짐
+            // 실행자 함수의 종류는 2가지
+            // resolve(), reject()
+            // new Promise((resolve, reject) => {
 
-        // });
-        // 대기[pending] : 프로미스 객체가 생성되어 대기 중인 상태
+            // });
+            // 대기[pending] : 프로미스 객체가 생성되어 대기 중인 상태
 
-        // 이행[fullfilled] : resolv()를 실행시켰을 때의 상태
-        // new Promise((resolve, reject) => {
-        //     resolve();
-        // });
+            // 이행[fullfilled] : resolv()를 실행시켰을 때의 상태
+            // new Promise((resolve, reject) => {
+            //     resolve();
+            // });
 
-        // 거부[rejected] : reject()를 실행시켰을 때의 상태
-        // new Promise((resolve, reject) => {
-        //     reject();
-        // });
+            // 거부[rejected] : reject()를 실행시켰을 때의 상태
+            // new Promise((resolve, reject) => {
+            //     reject();
+            // });
 
-        // 1초 후 실행 함수
-        let promiseFunction = new Promise((resolve, reject) => {
-            setTimeout(() => {
-               resolve();
-            }, 1000);
-        });
+            // 1초 후 실행 함수
+            // let promiseFunction = new Promise((resolve, reject) => {
+            //     setTimeout(() => {
+            //        resolve();
+            //     }, 1000);
+            // });
 
-        console.log(promiseFunction); 
-        promiseFunction.then(() => {
-            console.log("프로미스 실행");
-        });
+            // console.log(promiseFunction); 
+            // promiseFunction.then(() => {
+            //     console.log("프로미스 실행");
+            // });
+
+            // 개선된 프로미스 사용 방법 : 함수 내부에 변환 값으로 프로미스를 사용
+            // function usePromise(){
+            //     return new Promise((resolve, reject) => {
+            //         setTimeout(() => {
+            //             // ver 1
+            //             // resolve();
+            //             //ver 2
+            //             // resolve("resolve 실행");
+            //         }, 1000)
+            //     })
+            // };
 
 
-    </script>
-</body>
+            // usePromise()
+            //ver 1
+            // .then(() => {
+            //     console.log("프로미스 실행");
+            // })
+            //ver 2
+            // .then((msg) => {
+            //     console.log("프로미스 실행" + " - " + msg) ;
+            // })
+
+
+            // 에러 발생
+            // usePromis()
+            //     .then(() => {
+            //         console.log("실행 코드");
+            //     })
+
+
+            // try / catch : 에러를 처리하기 위해 사용하는 문법
+            // try{
+            //     console.log("실행 코드");
+
+            //     //
+            //     let likeJson = "{'name' : 'js'}"
+            //     JSON.parse(likeJson);
+            //     console.log("2. 실행 코드");
+
+            // } catch(error){
+            //     console.log("에러 처리 코드");
+            // } finally{
+            //     console.log("기본 실행 코드");
+            // }
+
+            // let likeJson = "{'name' : 'js'}"
+            // JSON.parse(likeJson);
+
+
+            // 프로미스에 에러 처리
+            // function usePromise(){
+            //     return new Promise((resolve, reject) => {
+            //             // ver1
+            //             // reject()
+
+            //             // ver2
+            //             reject(new Error('에러 발생'));
+            //     })
+            // };
+
+
+
+            // usePromise()
+            //     .then(() => {
+            //         console.log('실행 코드');
+            //     })
+            //     .catch((error) => {
+            //         console.log('에러 처리 코드');
+            //         console.log(error);
+            //     })
+            //     .then(() => {
+            //         console.log('실행 코드2');
+            //     })
+            //     .finally(() => {
+            //         console.log('기본 실행 코드');
+            //     })
+
+            // *** 체이닝 메소드 사용시 주의!
+            // function useChainMethod() {
+            //     return new Promise((resolve, reject) => {
+            //         setTimeout(() => {
+            //             resolve(3);
+            //         }, 1000);
+            //     });
+            // };
+
+            // useChainMethod()
+            //     .then((num) => {console.log(num);}) // 3
+            //     .then((num) => {console.log(num);}) // undeifend
+
+            // ? 왜 undefined가 출력되는가?
+
+            // 수정
+            // useChainMethod()
+            //     .then((num) => num) 
+            //     .then((num) => {console.log(num);})  
+
+            // useChainMethod()
+            //     .then((num) => num * 2 ) 
+            //     .then((num) => num * 3 ) 
+            //     .then((num) => num) 
+
+            // Promise.all()
+            function promiseAll(time) {
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        // resolve(3);
+                        resolve(time);
+                    }, time);
+                });
+            };
+
+            // Promise.all( [promiseAll(1000), promiseAll(2000), promiseAll(3000)])
+            //     .then((time) => {
+            //         console.log(time);
+            //         console.log('Promise all 실행 : 모든 프로미스가 fullied 되었을 때');
+            //     });
+
+
+            // promise race 실행
+            // Promise.race([promiseAll(1000), promiseAll(2000), promiseAll(3000)])
+            //     .then((time) => {
+            //         console.log(time);
+            //         console.log('Promise all 실행 : 모든 프로미스가 fullied 되었을 때');
+            //     });
+
+
+            // Async function : 
+            // 문법
+            // async function 함수명() {
+
+            // }
+            // async function fetchDate(){
+            //     // ver 1
+            //     // return new Promise((resolve, reject) => {
+            //     //     resolve('data');
+            //     // });
+
+            //     // ver 2
+            //     return 'data';
+            // }
+
+            // let data = fetchDate();
+            // data.then((data) => {
+            //     console.log(data);
+            // });
+
+            // await = 프로미스의 결과르 기다리기 위해 사용
+            // function loadData(time) {
+            //     return new Promise((resolve, reject) => {
+            //         setTimeout(() => {
+            //             resolve();
+            //         }, time)
+            //     })
+            // }
+
+            // 에러 발생 : await는 반드시 async 내부에서만 사용 가능
+            // let loading = await loadData(1000);
+            // loading 
+            // .then(() => console.log('데이터 로드 완료'));
+
+            // 수정 필요
+            // async function useAwait() {
+            //     try {
+            //         let loading = await loadData(1000);
+            //         console.log(loading);
+            //     } catch (error) {
+            //         console.log("cl");
+            //     }
+            // }
+
+            // useAwait();
+
+            // HTTP 통신 방식에 대한 이해
+
+            // XMLHTTPRequest[XHR] : 서버와 비동기로 상호작용하기 위해 사용되는 객체
+            // XML이란? 
+
+            function ajaxTest() {
+                let xhr = new XMLHttpRequest();
+                // onreadystatechange
+                // 서버 통신 진행시 내부 진행 상태의 변화를 감지
+
+                // readyState
+                // 서버 통신 진행시 진행 상태를 확인, 번호로 반환
+                // 1 : 요청 시작
+                // 2 : 요청 중
+                // 3 : 응답 중
+                // 4 : 응답 완료
+
+                // status
+                // 응답 상태 코드, 200은 정상 응답
+                
+
+                xhr.onreadystatechange = function () {
+                    if (this.readyState === 4 && this.status === 200) {
+                        // console.log(typeof this.response);
+                        let responseObj = JSON.parse(this.response);
+                        // console.log(responseObj);
+                        // ? id 값이 3번인 객체의 이름만 출력하기
+                        // console.log("이름 : " + responseObj[3].name);
+                        responseObj.forEach(element => {
+                            // console.log(element.id);
+                            if(element.id == 3){
+                                // console.log("이름 : " + element.name);
+                                
+                            }
+                        });
+                        
+                        // if(responseObj[2].id){
+                        //     // console.log("id= " + responseObj[2].id + ", name= "+ responseObj[2].name);
+                        // }
+
+                        // 하나만 가져오고 나머지 못 가져옴, i도 계속 빼줘야 함
+                        // let i = 3;
+                        // if(i === 3){
+                        //     console.log("id= " + responseObj[i-1].id + ", name= "+ responseObj[i-1].name);
+                        // }
+                        
+                        // // 여기서 없는 값 입력 시 오류 catch로 잡을 수 있나?
+                        // if(!responseObj[20]){
+                        //     try {
+                        //         console.log("id= " + responseObj[2].id + ", name= "+ responseObj[2].name);
+                        //     } catch (error) {
+                        //         console.log("값이 없음");
+                        //     }
+                        // }   // -> 이건 로직자체의 문제라 catch로 잡히지 않음
+
+
+                    }
+                };
+
+                xhr.open("GET", "https://jsonplaceholder.typicode.com/users", true);
+
+                xhr.send();
+            };
+
+            ajaxTest();
+
+      
+            // axios : 비동기 통신을 위해 사용되는 라이브러리(프로미스 기반)
+            // "https://unpkg.com/axios/dist/axios.min.js" 세팅이 필수
+            // axios({
+            //     method: "GET",
+            //     url : "https://jsonplaceholder.typicode.com/users"
+            // }).then(response => console.log(response.data));
+
+
+            // axios.get("https://jsonplaceholder.typicode.com/users")
+            //     .then(response => console.log(response.data));
+            
+            
+            // ? axios 통해 받아온 데이터를
+            // div 태그에 표현하기
+            
+            axios.get("https://jsonplaceholder.typicode.com/users")
+                .then(response => {
+                    // 코드 작성
+                    let data = '';
+       
+                    response.data.forEach(element => {
+                        // console.log(element)
+                        // console.log(typeof element)
+                        data +=  "id" + element.id +  " : " + element.name + ` <br>`;
+                        // console.log(data);
+                    });
+                        
+                    let htmlCode = `
+                        <div>
+                            ${data}
+                        </div>
+                        `;
+                    // document.write(htmlCode);
+
+                    
+                    // for(let i = 0; i < response.data.length; i++){
+                        //     console.log(i);
+                        //     console.log(response.data[i]);
+                        //     htmlCode.innerHTML += JSON.stringify(response.data[i]) + " <br><br><br>";
+                        //     document.write(htmlCode);
+                    // }
+            });
+
+            // // 민규형 코드 - 사용하려면 body에 div도 주석 해제
+            //     let innerData = document.querySelector("#viewResult");
+            //     const usersURL = `https://jsonplaceholder.typicode.com/users`;
+
+            //     axios.get(usersURL).then((res) => {
+            //             for (let i = 0; i < res.data.length; i++) {
+            //             // console.log(res.data[i]);
+            //             let innerText = `
+            //                 <h1> id : ${res.data[i].id}</h1>
+            //                 <h2> 이름 : ${res.data[i].name}</h2>
+            //                 <h3> 닉네임 : ${res.data[i].username}</h3>
+            //                 <span> 도시 : ${res.data[i].address.city} </span><br>
+            //                 <span> 위도 : ${res.data[i].address.geo.lat} </span><br>
+            //                 <span> 경도 : ${res.data[i].address.geo.lng} </span><br>
+            //                 <span> 회사이름 : ${res.data[i].company.name} </span>
+            //             `;
+            //             innerData.innerHTML = innerText;
+            //         }
+            //     });
+
+
+            // axios.get("https://jsonplaceholder.typicode.com/users?id=1")
+            //     .then(response => {
+            //         // console.log(response.data);
+            //         response.data.forEach(element => {
+            //             // console.log(element.address);
+            //         });
+            // });
+
+            
+
+        
+         
+
+        </script>
+
+    </body>
 
 </html>
