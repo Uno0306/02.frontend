@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>lab05_axios_fetch.html</title>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <script>
+            // axios : 비동기 통신을 위해 사용되는 라이브러리(프로미스 기반)
+            // "https://unpkg.com/axios/dist/axios.min.js" 세팅이 필수
+
+            // axios({
+            //     method: "GET",
+            //     url: "https://jsonplaceholder.typicode.com/users"
+            // }).then(response => console.log(response.data))
+
+
+            // GET : 정보 요청
+            // axios.get("https://jsonplaceholder.typicode.com/posts")
+            //     .then(response => console.log(response.data));
+
+            
+            // POST : 정보 입력(생성)
+            // axios.post("https://jsonplaceholder.typicode.com/posts", {
+            //     userId : "js",
+            //     id : 101,
+            //     title: "js-title",
+            //     body: "js-body"
+            // }).then((response) => {
+            //     console.log(response);
+            // })
+
+            // PUT : 즉시실행함수 사용 => 거의 얘가 빠르다. 밑에 두면 번갈아 나옴
+            // let name = (function name(){
+            //     axios.put("https://jsonplaceholder.typicode.com/posts/1", {
+            //         title: "js-title-put",
+            //         body: "js-body-put",
+            //     }).then((response) => {
+            //         console.log("즉시 " + response);
+            //     })
+            // })();
+
+            // PUT : 정보 수정
+            // axios.put("https://jsonplaceholder.typicode.com/posts/1", {
+            //     title: "js-title-put",
+            //     body: "js-body-put",
+            // }).then((response) => {
+            //     console.log(response);
+            // })
+            
+            // patch (입력한 정보만 수정)
+            // axios.patch("https://jsonplaceholder.typicode.com/posts/1", {
+            //     title: "js-title-put",
+            //     body: "js-body-put",
+            // }).then((response) => {
+            //     console.log(response);
+            // })
+            
+            
+            // DELETE : 정보 삭제
+            // axios.delete("https://jsonplaceholder.typicode.com/posts/1"
+            // ).then((response) => {
+            //     console.log(response);
+            // })
+
+
+            // fetch : 자바스크립트 내장 라이브러리(프로미스 기반)
+            // fetch("https://jsonplaceholder.typicode.com/posts/1", {
+            //     method : "GET"
+            // }).then((response) => response.json())
+            // .then(data => console.log(data))
+            
+            
+            // fetch - post
+            // fetch("https://jsonplaceholder.typicode.com/posts", {
+            //     method : "POST",
+            //     headers: {
+            //         "Content-Type": "application/json"
+            //     },
+            //     body: JSON.stringify({
+            //         title: "js-post-fetch",
+            //         body: "js-body-fetch",
+            //         userId: 11
+            //     })
+            // }).then((response) => response.json())
+            // .then(data => console.log(data))
+
+            // fetch - put
+            // fetch("https://jsonplaceholder.typicode.com/posts/1", {
+            //     method : "PUT",
+            //     headers: {
+            //         "Content-Type": "application/json"
+            //     },
+            //     body: JSON.stringify({
+            //         title: "js-post-fetch",
+            //         body: "js-body-fetch"
+            //     })
+            // }).then((response) => response.json())
+            // .then(data => console.log(data))
+
+            // fetch - delete
+            // fetch("https://jsonplaceholder.typicode.com/posts/1", {
+            //     method : "DELETE"
+            // }).then((response) => response.json())
+            // .then(data => console.log(data))
+
+
+            // axios VS fetch
+            // axios : 대부분의 브라우저에서 지원 가능(브라우저 호환성 높음)   
+            //          요청 객체를 자동으로 JSON으로 변환
+            // fetch : 내장 라이브러리(설치, 외부에서 가져오기 필요 X) = 링크가 바껴도 사용 가능
+            //          => 안정성이 높다.        
+            
+
+            // POSTMAN : REST API 잘 작동하는지 확인 툴
+
+            // 영화
+            const baseURL = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json"
+            const keyValue = "45434acf491bc75490d903ddbcb7e67d"
+            const targetDate = 20211101;
+
+            // 일별 박스오피스에서
+            // 2021년 11월 1일에 관객수가 2000 이상이고
+            // 상영된 횟수가 홀수인 영화만 출력해주세요!
+            axios.get(baseURL, {
+                params: {
+                    key: keyValue,
+                    targetDt: targetDate
+                }
+            }).then(response => //{ 
+
+                // const obj = response.data.boxOfficeResult.dailyBoxOfficeList;
+                
+                // foreach 사용해서 출력
+                // console.log("forEach 사용해서 출력");
+                // obj.forEach(element => {
+                //     if((element.audiCnt >= 2000) && element.showCnt % 2 == 1){
+                //         console.log("영화 명: " + element.movieNm + ", 관객 수: " + element.audiCnt + ", 상영 횟수: " + element.showCnt)
+                //     }
+                // });
+
+                // 중괄호 많아서 그냥 배열 넣어버리기
+
+                // console.log(obj[0].audiCnt);
+                // console.log(obj);
+               
+                // for of 사용해서 출력
+                // console.log("for of 사용해서 출력");
+                // for(const element of obj){
+                //     if((element.audiCnt >= 2000) && element.showCnt % 2 == 1){
+                //         console.log("영화 명: " + element.movieNm + ", 관객 수: " + element.audiCnt + ", 상영 횟수: " + element.showCnt)
+                //     }
+                // }
+
+                // map 사용해서 출력
+                // console.log("map 사용해서 출력");
+                // const map = obj.map(obj => {
+                //     if((obj.audiCnt >= 2000) && obj.showCnt % 2 == 1){
+                //         console.log("영화 명: " + obj.movieNm + ", 관객 수: " + obj.audiCnt + ", 상영 횟수: " + obj.showCnt)
+                //     }
+                // });
+
+                // filter 사용해서 출력
+                // console.log("filter 사용해서 출력");
+                // const filter = obj.filter(element => {
+                //     if((element.audiCnt >= 2000) && element.showCnt % 2 == 1){
+                //         console.log("영화 명: " + element.movieNm + ", 관객 수: " + element.audiCnt + ", 상영 횟수: " + element.showCnt)
+                //     }
+                // });
+                
+
+            response.data   
+            //}
+            )            
+            .then((data) => 
+                data.boxOfficeResult.dailyBoxOfficeList.filter(
+                    (el) => (el.audiCnt >= 2000) && (el.showCnt % 2 === 1)
+                )
+            ).then(result => console.log(result))
+
+
+
+        </script>
+    </body>
+</html>
