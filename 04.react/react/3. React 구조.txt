@@ -1,0 +1,8 @@
+node_modules : 패키지가 들어있는 폴더
+public : css, img, html, js, component등의 정적(static) 컨텐츠가 들어있다.
+READ.md : 프로젝트의 정보를 담고 있는 파일
+*.json : npm이 생성한 파일로 프로젝트 사용의 설정(도구, 버전 등)
+stc : 우리가 실질적으로 작업하는 공간
+
+    - index.js : HTML 템플릿 및 component 렌더링
+    - App.js : component 정의

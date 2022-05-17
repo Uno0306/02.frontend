@@ -1,0 +1,11 @@
+state : component의 상태
+useState() : 상태를 관리하는 함수
+
+- component는 life cycle(주기)를 가진다!!
+
+- Hooks : 함수형 component에서 주기를 관리하기 위해 만들어진 기능
+
+그 중 state 확인
+
+- useState의 문법
+const[state, setState] = useState();

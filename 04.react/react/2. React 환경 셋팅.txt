@@ -1,0 +1,13 @@
+[Node.js]
+어플리케이션을 실행시키는 소프트웨어 플랫폼
+ JavaScript로 되어 있음 -> JS 소프트웨어 실행 가능
+
+ - 설치
+ - 확인 : cmd > node -v(--version) / npm -v(--version)
+
+ NPM[Node Package Manager]
+ -> 개발에 필요한 도구 패키지를 관리하는 툴
+
+1. npx create-react-app my-app
+2. cd my-app
+3. npm start
