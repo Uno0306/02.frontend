@@ -7,7 +7,7 @@ function Hello({name, color, important}){
     
     // console.log(name);
     // return <div style={props}>Hello, {props.name} {props.children}</div>
-    
+
     return (
         <div style={{
                 color: color

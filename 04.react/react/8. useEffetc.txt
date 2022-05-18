@@ -1,0 +1,26 @@
+useEffect() : 어떤 component가 마운트 - 업데이트 - 언마운트 시
+            특정 작업 코드를 실행시켜 주고 싶을 때 사용하는 Hook
+
+- 문법
+-- Clean-Up :  useEffect 사용후, 실행 이벤트에 대한 것을 정리할
+useEffect (() => {
+    수행 코드;
+    return() => {
+        작업 종료;
+    }
+})
+
+- 종류
+
+때
+1)
+useEffect (() => {
+    수행 코드;
+})
+
+2)
+useEffect (() => {
+    수행 코드;
+}, [Dependency Array])
+
+
