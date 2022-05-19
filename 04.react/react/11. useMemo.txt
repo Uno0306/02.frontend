@@ -1,0 +1,14 @@
+Memoization 메모이 제이션
+: 동일값을 반환하는 함수를 반복적으로 호출하는 경우
+ 해당 결과값을 메모리(캐시)에 저장하여 사용할 때 이용되는 Hook
+
+ -  구조
+ - 함수의 결괏값 기억
+ const value = useMemo(() => {
+     return cal();
+ }, {deps});
+
+- 함수 자체를 기억
+ const value = useCallback(() => {
+     return cal();
+ }, {deps});

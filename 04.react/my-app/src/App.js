@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
 import './App.css';
-import {useState } from 'react';
+import UseCallback2 from './UseCalback2';
+// import {useState } from 'react';
 // import Hello from "./Hello.js"
 // import View from "./View"
 // import UseState1 from './UseState1';
@@ -14,8 +15,13 @@ import {useState } from 'react';
 // import UseRef3 from './UseRef3';
 // import Header from './Header';
 // import Articles from './Articles';
-import News from './News';
-import {UseContext1}  from './UseContext1';
+// import News from './News';
+// import {UseContext1}  from './UseContext1';
+// import UseMemo1 from './UseMemo1';
+// import UseMemo2 from './UseMemo2';
+// import UseCallback1 from './UseCallback1';
+// import UseReducer1 from './UseReducer1';
+import UseReducer2 from './UseReducer2';
 
 
 
@@ -34,11 +40,11 @@ function App() {
   // };
   
   
-  const [company, setCompany] = useState("메뚜기 월드");
+  // const [company, setCompany] = useState("메뚜기 월드");
 
   
   // console.log(lightStyle);
-  const [bool, setBool] = useState(true);
+  // const [bool, setBool] = useState(true);
 
   return (
     // <div className="App">
@@ -81,10 +87,10 @@ function App() {
       
     <div 
       className='App'
-      style={{
-        color: bool? "black" : "lightgreen",
-        background: bool?  "white" : "black"
-      }}
+      // style={{
+      //   color: bool? "black" : "lightgreen",
+      //   background: bool?  "white" : "black"
+      // }}
     >
 
       {/* version1 */}
@@ -114,10 +120,18 @@ function App() {
 
       </News> */}
 
-      <UseContext1.Provider value={{company ,setCompany ,bool, setBool}}>
+      {/* <UseContext1.Provider value={{company ,setCompany ,bool, setBool}}>
         <News></News>
-      </UseContext1.Provider>
+      </UseContext1.Provider> */}
       
+       {/* <Parent/> */}
+
+       {/* <UseMemo1></UseMemo1> */}
+       {/* <UseMemo2></UseMemo2> */}
+       {/* <UseCallback1></UseCallback1> */}
+       {/* <UseCallback2></UseCallback2> */}
+       {/* <UseReducer1></UseReducer1> */}
+       <UseReducer2></UseReducer2>
     </div>
       
   );

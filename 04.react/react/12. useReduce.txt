@@ -1,0 +1,5 @@
+useReducer : state 생성하고, 관리하는 Hook
+
+- useReducer : state를 업데이터
+- dispatch : state 업데이트를 요구
+- action : 요구 내용
