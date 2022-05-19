@@ -29,13 +29,15 @@ const reducer = (state, action) => {
             //     ); 
             // })
             // return console.log(action.stock);
-            
+            if(action.name === ""){
+                action.name = "empty";
+            }
+
             const actionArr = {id : action.id, 
                             name : action.name, 
                             confirmed: action.confirmed};
 
             // console.log(state);
-            
             return  state= {count : action.id, 
                             lists : state.lists.concat(actionArr)};
             
@@ -93,6 +95,8 @@ function UseReducer2() {
     // console.log("length : " + finalList.lists.length);
     // console.log("id : " + refId.current);
 
+    const inputRef = useRef();
+
     return(
         <div>
             <h2>물품 리스트</h2>
@@ -101,7 +105,8 @@ function UseReducer2() {
                 type="text"
                 placeholder="물품을 입력하세요"
                 onChange={(e) => setList(e.target.value)}
-                // value={list}
+                value={list}
+                ref={inputRef}
             >
                 {/* {console.log("list : "+list)} */}
             </input>
@@ -113,6 +118,8 @@ function UseReducer2() {
                     updateRefId();
                     // console.log("name: " +list + ", id: " + refId.current);
                     dispatch({type: ACTION_TYPES.add, name: list, id: refId.current, confirmed: true})
+                    setList("");  
+                    inputRef.current.focus();                  
                 }}
             >
                 추가

@@ -7,17 +7,22 @@ const ACTION_TYPES = {
 
 const reducer = (state, action) => {
     const id = action.id -1
-    console.log(state);
+    console.log(id);
+    // console.log(state);
     switch(action.type){
  
          case ACTION_TYPES.remove:
-            return Array.isArray(state.iists.filter(list => list.id != id));
+             console.log(state.lists);
+             const filter = state.lists.filter(todo => todo.id != id);
+             {console.log(filter);}
+             state.lists = filter
+            return state;
          default :
              return state;
     }
  }
 
-const List = ( {props} ) => {
+const List = ( {key, props} ) => {
     const [finalList2, dispatch] = useReducer(reducer, props);
 
 
@@ -36,21 +41,40 @@ const List = ( {props} ) => {
             </button>
             <br/> */}
 
-            {/* {props.lists.map((obj) => {   
-                    <span>${obj.id} </span>
-                    <span>${obj.name}</span>
-                    <button 
+            {props.lists.map((obj) => {
+                return(
+                //     <span>${obj.id} </span>
+                //     <span>${obj.name}</span>
+                //     <button 
+                //         onClick={() => {
+                //             dispatch(type: ${ACTION_TYPES.remove}, id: ${obj.id})
+                //         }}
+                //     >
+                //         삭제
+                //     </button>
+                // <br/>
+                    <p key={obj.id}>
+                        <span>{obj.id} </span>
+                        <span>{obj.name}</span>
+                        <button
+                            onClick={() => {
+                                dispatch({type: ACTION_TYPES.remove, id: obj.id})
+                            }}
+                        >
+                            삭제
+                        </button>
+                        <br />
+                        {/* <button 
                         onClick={() => {
                             dispatch(type: ${ACTION_TYPES.remove}, id: ${obj.id})
                         }}
-                    >
+                        >
                         삭제
-                    </button>
-                <br/>
-            })} */}
-
-
-            
+                        </button>
+                        <br/> */}
+                    </p>
+                );
+            })}
         </div>
     )
 }

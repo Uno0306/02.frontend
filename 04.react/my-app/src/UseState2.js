@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 
 function Usestate2(){
     let students = ["신현", "성종"];
@@ -13,7 +13,6 @@ function Usestate2(){
 
     }
     
-
     const inputValueRecord = () => {
         // console.log(names);
         setNames((previousValue) => {
@@ -30,12 +29,13 @@ function Usestate2(){
             // return arr
         });
         setInput("");
+        
     }
 
     
     return(
         <div>
-            <input type="text" onChange={inputValueChange} value={input}></input>
+            <input id="text" type="text" onChange={inputValueChange} value={input}></input>
             <button onClick={inputValueRecord} >Record!</button>
             {names.map((name, idx) => {
                 return <p key={idx}>{name}</p>
