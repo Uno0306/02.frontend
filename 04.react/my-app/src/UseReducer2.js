@@ -1,4 +1,4 @@
-import React, { useReducer, useRef, useState } from "react";
+import React, { useCallback, useReducer, useRef, useState } from "react";
 // import {useCallback, useEffect} from "react"
 import List from "./List";
 
@@ -31,17 +31,17 @@ const reducer = (state, action) => {
             // return console.log(action.stock);
             if(action.name === ""){
                 action.name = "empty";
-            }
+            }   
 
             const actionArr = {id : action.id, 
                             name : action.name, 
                             confirmed: action.confirmed};
 
             // console.log(state);
-            return  state= {count : action.id, 
-                            lists : state.lists.concat(actionArr)};
+            return ( state = {count : action.id, 
+                            lists : state.lists.concat(actionArr)}
+                    )
             
-
 
             // return state = {count : action.id.current,lists : [...state.lists,{
             //     id : action.id.current,
@@ -49,11 +49,7 @@ const reducer = (state, action) => {
             //     confirmed : true}]};
         
 
-        case ACTION_TYPES.remove:
-            // return initialList.lists.pop();
-            break;
-        default :
-            return state;
+     
     }
 }
 
@@ -104,7 +100,7 @@ function UseReducer2() {
             <input 
                 type="text"
                 placeholder="물품을 입력하세요"
-                onChange={(e) => setList(e.target.value)}
+                onChange={useCallback((e) => {setList(e.target.value)}, [finalList])}
                 value={list}
                 ref={inputRef}
             >
@@ -128,9 +124,12 @@ function UseReducer2() {
             {/* {finalList.lists.map((obj) => {
                 return <List key={obj.id} name={obj.name} obj={obj}><br/></List> 
             })} */}
-            
+            {/* {console.log(finalList)}; */}
             <List props={finalList}></List>
 
+            {/* <List props={finalList.count, finalList.lists.map((obj) => {
+                return  obj={obj};
+            })}></List> */}
 
             
             {/* {initialList.map((count, lists.map((name) =>{
