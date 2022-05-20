@@ -4,7 +4,7 @@ import UseCallback2 from './UseCalback2';
 // import {useState } from 'react';
 // import Hello from "./Hello.js"
 // import View from "./View"
-// import UseState1 from './UseState1';
+import UseState1 from './UseState1';
 // import UseState2 from './UseState2';
 // import Parent from './Parent';
 // import Child from './Child';
@@ -22,6 +22,8 @@ import UseCallback2 from './UseCalback2';
 // import UseCallback1 from './UseCallback1';
 // import UseReducer1 from './UseReducer1';
 import UseReducer2 from './UseReducer2';
+import UseReducer2Solo from './UseReducer2Solo';
+import Storage from './Storage';
 
 
 
@@ -131,7 +133,16 @@ function App() {
        {/* <UseCallback1></UseCallback1> */}
        {/* <UseCallback2></UseCallback2> */}
        {/* <UseReducer1></UseReducer1> */}
-       <UseReducer2></UseReducer2>
+       {/* <UseReducer2></UseReducer2> */}
+
+       {/* <UseState1></UseState1> */}
+       {/* <UseReducer2Solo></UseReducer2Solo> */}
+       
+       {/* <UseReducer2></UseReducer2> */}
+
+
+        <Storage></Storage>
+
     </div>
       
   );

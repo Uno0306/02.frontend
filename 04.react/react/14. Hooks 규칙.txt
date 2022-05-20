@@ -1,0 +1,7 @@
+https://ko.reactjs.org/docs/hooks-rules.html
+
+1. 최상위(at the Top Level)에서만 Hook을 호출해야 합니다
+2. Component 에서만 Hook을 호출 해야 합니다
+
+- 자신만의 hook 만들기
+https://ko.reactjs.org/docs/hooks-custom.html

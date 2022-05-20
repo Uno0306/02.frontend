@@ -1,0 +1,15 @@
+WebStorage
+
+- loacl / session
+
+- loalStorage : k : v, 문자열로 저장, JSON
+
+- 사용
+window.loalStorage.
+
+    - setItem(k : v)
+    - getItem(k)
+    - removeItem()
+    - clear()
+    - length
+    - key(idx)

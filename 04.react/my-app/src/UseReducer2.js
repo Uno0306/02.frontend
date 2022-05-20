@@ -1,56 +1,70 @@
-import React, { useCallback, useReducer, useRef, useState } from "react";
-// import {useCallback, useEffect} from "react"
+import React, { useCallback, useEffect, useReducer, useRef, useState } from "react";
 import List from "./List";
 
-
-const ACTION_TYPES = {
-    add: "add",
-    remove: "remove"
-};
+const ACTION_TYPE = {
+    add: "add-list",
+    delete: "delete-list",
+    alter: "confirmed-list"
+}
 
 const reducer = (state, action) => {
-   //
-//    const addList = {};
-//    const addBList = {};
-
-    switch(action.type){
-        case ACTION_TYPES.add:
-            // setList((initialList) => {
-            //     return (
-                    
-            //         initialList.concat( addBList = {
-            //             count: 2,
-            //             addList = {
-            //                 id: 2,
-            //                 name: action.stock,
-            //                 confirmed: true
-            //             }
-            //         })
-            //     ); 
-            // })
-            // return console.log(action.stock);
-            if(action.name === ""){
-                action.name = "empty";
+   console.log(action.type);
+   switch(action.type){
+       case "add-list":
+            if(action.list === ""){
+                action.list = "empty";
             }   
+            console.log(action.stock);
+            console.log(action.id.current);
+            console.log(action.list);
+            const name = action.list;
+            const newList = {
+                id: action.id.current += 1,
+                // name : action.list,
+                name,
+                confirmed : true
+            }
 
-            const actionArr = {id : action.id, 
-                            name : action.name, 
-                            confirmed: action.confirmed};
+            return{
+                count: state.count +1,
+                lists: [...state.lists, newList]
+            }
+        case "delete-list":
+            const delList = state.lists.filter((list) => list.id !==  action.id.id);
 
-            // console.log(state);
-            return ( state = {count : action.id, 
-                            lists : state.lists.concat(actionArr)}
-                    )
+            return  {
+                count : state.count -1,
+                lists : delList
+            };
+
+        case "confirmed-list":
+            // 내 코드
+            // console.log(state.lists[action.id.id-1].name + " " + state.lists[action.id.id-1].confirmed);
             
-
-            // return state = {count : action.id.current,lists : [...state.lists,{
-            //     id : action.id.current,
-            //     name : action.name,
-            //     confirmed : true}]};
+            // const id = action.id.id-1;
+            // state.lists[id].confirmed = !(state.lists[id].confirmed);
         
+            // if(state.lists[id].id === action.id.id){
+            //     return {...state, confirmed: !(action.confirmed)}
+            // }
 
-     
-    }
+            // return state; 
+
+            // 강사님 코드
+            return {
+                count : state.count,
+                lists: state.lists.map((list) => {
+                    if(list.id === action.id.id){
+                        // console.log(list.name + " " + list.confirmed);
+                        return {...list, confirmed: !list.confirmed}
+                    }
+                    return list
+                })
+            };
+        
+        default:
+            return state;
+   }
 }
 
 const initialList = {
@@ -64,79 +78,40 @@ const initialList = {
     ]
 }
 
-// var arr = initialList.lists;  
-// var length = arr.length;  
-
-
 function UseReducer2() {
+    const currentId = useRef(1);
     const [list, setList] = useState("");
     const [finalList, dispatch] = useReducer(reducer, initialList); 
-
-    // const inputValue = () => {
-        
-    // }
-
     // console.log(finalList);
-
-    // arr = finalList.lists;
-    // console.log("id ;" + arr.length);
-    const num = initialList.lists[initialList.lists.length-1].id;
-    // console.log(num);
-    const refId = useRef(num);
-    // console.log(refId);
-    const updateRefId = () =>{
-        refId.current = refId.current+1;
-    }
-    // updateRefId();
-    // console.log("length : " + finalList.lists.length);
-    // console.log("id : " + refId.current);
-
-    const inputRef = useRef();
+    // console.log(list);
 
     return(
         <div>
             <h2>물품 리스트</h2>
-            <p>총 물품수 : {finalList.lists.length} 개</p>
+            <p>총 물품수 : {finalList.count} 개</p>
             <input 
                 type="text"
                 placeholder="물품을 입력하세요"
-                onChange={useCallback((e) => {setList(e.target.value)}, [finalList])}
-                value={list}
-                ref={inputRef}
-            >
-                {/* {console.log("list : "+list)} */}
+                onChange={(e) => setList(e.target.value)}>
             </input>
-                {/* {console.log(initialList.lists[0])}
-                {console.log(list)} */}
             <button 
-                // onClick={inputValue}
                 onClick={() => {
-                    updateRefId();
-                    // console.log("name: " +list + ", id: " + refId.current);
-                    dispatch({type: ACTION_TYPES.add, name: list, id: refId.current, confirmed: true})
-                    setList("");  
-                    inputRef.current.focus();                  
+                    dispatch({type: ACTION_TYPE.add, id: currentId, list: list})
+
                 }}
             >
                 추가
             </button>
-
-            {/* {finalList.lists.map((obj) => {
-                return <List key={obj.id} name={obj.name} obj={obj}><br/></List> 
-            })} */}
-            {/* {console.log(finalList)}; */}
-            <List props={finalList}></List>
-
-            {/* <List props={finalList.count, finalList.lists.map((obj) => {
-                return  obj={obj};
-            })}></List> */}
-
-            
-            {/* {initialList.map((count, lists.map((name) =>{
-                return {name}
-            })) => {
-                return <p key={count}>{lists.name}</p>
-            })} */}
+            {finalList.lists.map((list)=> {
+                // return <p key={list.id}>{list.name}<button></button></p>
+                return <List 
+                            key={list.id}            
+                            name={list.name}
+                            dispatch={dispatch}
+                            id={list.id}
+                            confirmed={list.confirmed}
+                        />
+            } )}
         </div>
     )
 }

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab07_closure.html</title>
+</head>
+
+<body>
+    <script>
+        // 렉시컬(Lexical) 스코프
+        // : 코드상에 작성된 문맥에서 스코프가 결정
+
+        // var x = 'global';
+
+        // function foo() {
+        //     var x = 'local';
+        //     bar();
+        // };
+
+        // function bar() {
+        //     console.log(x);
+        // };
+
+        // foo(); // local
+
+        // bar(); // global
+
+        // step01
+        // let one;
+        // one = 1;
+
+        // function addNum(num) {
+        //     console.log(one + num);
+        // }
+
+        // addNum(5);
+
+        // step02
+        // function makeSum(x) {
+        //     console.log(x);
+        //     return function(y) {
+        //         console.log(x);
+        //         console.log(y);
+
+        //         return x + y;
+        //     };
+        // };
+
+        // const add3 = makeSum(3);
+        // // add3 -> function
+
+        // console.log(add3(2));
+        //     // makeSum (내부) x -> 3
+        //         // ㄴ> 익명 (내부) y -> 2
+
+        // 클로저의 조건
+        // 1. 내부 함수가 익명함수로 외부 함수의 리턴값이 될 때
+        // 2. return되는 내부 함수는 외부 함수의 실행 환경에서 호출 될 때
+        // 3. 내부 함수 스코프의 변수는 외부 함수 스코프에 존재 할 때
+
+        // function count() {
+        //     var i;
+        //     for(i = 1; i < 10 ; i ++){
+        //         console.log(i);
+        //     };
+        // };
+
+        // count();
+
+        // function count2() {
+        //     var i;
+        //     for(i = 1; i < 10 ; i ++){
+        //         setTimeout(function timer(){
+        //             console.log(i);
+        //        }, i * 100);
+        //     };
+        // };
+
+        // count2(); // 10 10번
+
+        function count3() {
+            var i;
+            for (i = 1; i < 10; i++) {
+                (function printNum(num) {
+                    setTimeout(function timer() {
+                        console.log(num);
+                    }, i * 100);
+                }(i)); // 즉시 실행 함수 초기값 바로 때림
+            };
+        };
+
+        count3();
+    </script>
+</body>
+
+</html>
