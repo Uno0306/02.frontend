@@ -9,7 +9,7 @@ function Storage() {
 
     const onChange = (e) => {
         setName(e.target.value);
-        setCheck(false);
+        setCheck(false); 
         setArr([]);
     }
 
