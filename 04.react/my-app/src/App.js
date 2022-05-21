@@ -24,6 +24,7 @@ import UseState1 from './UseState1';
 import UseReducer2 from './UseReducer2';
 import UseReducer2Solo from './UseReducer2Solo';
 import Storage from './Storage';
+import Storage2 from './Storage2';
 
 
 
@@ -142,6 +143,8 @@ function App() {
 
 
         <Storage></Storage>
+        <hr />
+        <Storage2></Storage2>
 
     </div>
       
