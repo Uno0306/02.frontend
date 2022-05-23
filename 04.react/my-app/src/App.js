@@ -1,10 +1,10 @@
+import React from "react";
 // import logo from './logo.svg';
-import './App.css';
-import UseCallback2 from './UseCalback2';
+import "./App.css";
 // import {useState } from 'react';
 // import Hello from "./Hello.js"
 // import View from "./View"
-import UseState1 from './UseState1';
+// import UseState1 from "./UseState1";
 // import UseState2 from './UseState2';
 // import Parent from './Parent';
 // import Child from './Child';
@@ -20,13 +20,15 @@ import UseState1 from './UseState1';
 // import UseMemo1 from './UseMemo1';
 // import UseMemo2 from './UseMemo2';
 // import UseCallback1 from './UseCallback1';
+// import UseCallback2 from "./UseCalback2";
 // import UseReducer1 from './UseReducer1';
-import UseReducer2 from './UseReducer2';
-import UseReducer2Solo from './UseReducer2Solo';
-import Storage from './Storage';
-import Storage2 from './Storage2';
-
-
+// import UseReducer2 from './UseReducer2';
+// import UseReducer2Solo from './UseReducer2Solo';
+// import Storage from './Storage';
+// import Storage2 from './Storage2';
+// import Inputs from "./inputs";
+// import CSSMOdule from "./components/CSSModule";
+import StyledComponent from "./components/StyledComponent";
 
 function App() {
   // const title = "React";
@@ -35,17 +37,15 @@ function App() {
   //   color: "blue",
   //   fontSize: "40px"
   // }
-  
+
   // const [work, setWork] = useState(false);
   // const [previousState,setState] = useState(false)
   // const changeImportant = () =>{
   //   setState(true);
   // };
-  
-  
+
   // const [company, setCompany] = useState("메뚜기 월드");
 
-  
   // console.log(lightStyle);
   // const [bool, setBool] = useState(true);
 
@@ -67,44 +67,41 @@ function App() {
     //     </a>
     //   </header> */}
     // </div>
-    
-    
-      // {/* <View>
-      //   <Hello name="react" color="red"></Hello>
-      //   <Hello color="yellowgreen" important={true}>{title}</Hello>
-      // </View> */}
-      // <div className="App">
-      
+
+    // {/* <View>
+    //   <Hello name="react" color="red"></Hello>
+    //   <Hello color="yellowgreen" important={true}>{title}</Hello>
+    // </View> */}
+    // <div className="App">
+
     //     {/* 부모 - 자식 데이터 전달 */}
     //     {/* <Parent>
     //       {/* <Child></Child> *-/}
     //     </Parent> */}
     //  {/* </div> */}
-      
-            // {/* <UseState1/> */}
-            // {/* <UseState2/> */}
-      
-            
-            // {/* <div className="item"></div>
-            // <div style={basicStyle}>{title}</div> */}
-      
-    <div 
-      className='App'
+
+    // {/* <UseState1/> */}
+    // {/* <UseState2/> */}
+
+    // {/* <div className="item"></div>
+    // <div style={basicStyle}>{title}</div> */}
+
+    <div
+      className="App"
       // style={{
       //   color: bool? "black" : "lightgreen",
       //   background: bool?  "white" : "black"
       // }}
     >
-
       {/* version1 */}
-        {/* <UseEffect1></UseEffect1> */}
-        {/* {true? "" : <UseEffect2/>} */}
-        {/* {work && <UseEffect2/>} */}
-        
-        {/* work 버튼을 클릭했을 때 ---> 
+      {/* <UseEffect1></UseEffect1> */}
+      {/* {true? "" : <UseEffect2/>} */}
+      {/* {work && <UseEffect2/>} */}
+
+      {/* work 버튼을 클릭했을 때 ---> 
             1) "작업 중 콘솔 보기"가 출력되면서
             2) 작업이 실행되도록 */}
-        {/* <button onClick={() => {setWork(!work);}} >work</button> */}
+      {/* <button onClick={() => {setWork(!work);}} >work</button> */}
 
       {/* version2 */}
       {/* <UseEffect2 state={previousState}/>
@@ -114,7 +111,6 @@ function App() {
       {/* <UseRef1></UseRef1> */}
       {/* <UseRef2></UseRef2> */}
       {/* <UseRef3></UseRef3> */}
-
 
       {/* <News 
         company={company}
@@ -126,29 +122,31 @@ function App() {
       {/* <UseContext1.Provider value={{company ,setCompany ,bool, setBool}}>
         <News></News>
       </UseContext1.Provider> */}
-      
-       {/* <Parent/> */}
 
-       {/* <UseMemo1></UseMemo1> */}
-       {/* <UseMemo2></UseMemo2> */}
-       {/* <UseCallback1></UseCallback1> */}
-       {/* <UseCallback2></UseCallback2> */}
-       {/* <UseReducer1></UseReducer1> */}
-       {/* <UseReducer2></UseReducer2> */}
+      {/* <Parent/> */}
 
-       {/* <UseState1></UseState1> */}
-       {/* <UseReducer2Solo></UseReducer2Solo> */}
-       
-       {/* <UseReducer2></UseReducer2> */}
+      {/* <UseMemo1></UseMemo1> */}
+      {/* <UseMemo2></UseMemo2> */}
+      {/* <UseCallback1></UseCallback1> */}
+      {/* <UseCallback2></UseCallback2> */}
+      {/* <UseReducer1></UseReducer1> */}
+      {/* <UseReducer2></UseReducer2> */}
 
+      {/* <UseState1></UseState1> */}
+      {/* <UseReducer2Solo></UseReducer2Solo> */}
 
-        <Storage></Storage>
-        <hr />
-        <Storage2></Storage2>
+      {/* <UseReducer2></UseReducer2> */}
 
+      {/* <Storage></Storage> */}
+      {/* <hr /> */}
+      {/* <Storage2></Storage2> */}
+
+      {/* <Inputs></Inputs> */}
+
+      {/* <CSSMOdule></CSSMOdule> */}
+      <StyledComponent></StyledComponent>
     </div>
-      
   );
-};
+}
 
 export default App;

@@ -4,7 +4,7 @@ function Storage2() {
     const [name, setName] = useState("");
     const [key, setKey] = useState("");
     const [check, setCheck] = useState(false);
-    const [rend, setRend] = useState(false);
+    // const [rend, setRend] = useState(false);
     const cnt = useRef(window.localStorage.length);
     const inputRef = useRef();
     const inputRef2 = useRef();
@@ -40,9 +40,37 @@ function Storage2() {
     }
 
     const loadName = () => {
+        let adr = false;
+        for(let i = 0; i<window.localStorage.length;  i++){
+            // console.log(window.localStorage.key(i));
+                if(window.localStorage.key(i) === key){
+                    // console.log(JSON.parse(window.localStorage.getItem(key)).name);
+                    if(JSON.parse(window.localStorage.getItem(key)).name === name){
+                        adr = true;
+                    }
+                }
+                // console.log("adr2: "+adr);
+            }
+            
+            // for(var i = 0; i<window.localStorage.length; i++){ 
+            //     if(JSON.parse(window.localStorage.getItem(window.localStorage.key(i))).name === name){
+            //         // array = [...array, {
+            //         //     key : window.localStorage.getItem(window.localStorage.key(i)).key,
+            //         //     name: window.localStorage.getItem(window.localStorage.key(i)).name
+            //         // }]
+            //         setArr([...arr, {
+            //             key : window.localStorage.getItem(window.localStorage.key(i)).key,
+            //             name: window.localStorage.getItem(window.localStorage.key(i)).name
+            //         }])
+            //         adr = true;
+            //         console.log(array);
+            //     }
+            // }
+
         // count++;
         // console.log(count);
-        setRend(!rend);
+        // setRend(!rend);
+        setCheck(adr);
         // for(var i = 0; i<window.localStorage.length;  i++){
         //     console.log(window.localStorage.key(i));
         //     if(window.localStorage.key(i) === "key3"){
@@ -69,42 +97,15 @@ function Storage2() {
     useEffect(() => {
         console.log("d");
         // setName(JSON.parse(window.localStorage.getItem("key3")).name);
-        var adr = false;
         // console.log("adr1: "+adr);
         // var array = {};
-        const func = () => {
-            for(var i = 0; i<window.localStorage.length;  i++){
-            // console.log(window.localStorage.key(i));
-                if(window.localStorage.key(i) === key){
-                    // console.log(JSON.parse(window.localStorage.getItem(key)).name);
-                    if(JSON.parse(window.localStorage.getItem(key)).name === name){
-                        adr = true;
-                    }
-                }
-                // console.log("adr2: "+adr);
-            }
-            
-            // for(var i = 0; i<window.localStorage.length; i++){ 
-            //     if(JSON.parse(window.localStorage.getItem(window.localStorage.key(i))).name === name){
-            //         // array = [...array, {
-            //         //     key : window.localStorage.getItem(window.localStorage.key(i)).key,
-            //         //     name: window.localStorage.getItem(window.localStorage.key(i)).name
-            //         // }]
-            //         setArr([...arr, {
-            //             key : window.localStorage.getItem(window.localStorage.key(i)).key,
-            //             name: window.localStorage.getItem(window.localStorage.key(i)).name
-            //         }])
-            //         adr = true;
-            //         console.log(array);
-            //     }
-            // }
-
-        }
-    
-        func();
-        setCheck(adr);
+        // const func = () => {}
+        
+        
+        loadName();
+        
         inputRef.current.focus();
-    }, [rend]);
+    }, [name]);
     console.log("result : " + check);
 
 

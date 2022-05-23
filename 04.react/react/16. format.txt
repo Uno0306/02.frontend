@@ -1,0 +1,6 @@
+Prettier
+
+https://prettier.io/
+
+1. f1을 눌러서 settings.json 검색 
+2. [ctrl+,] 후 prettier 검색

@@ -1,0 +1,13 @@
+{
+  "git.autofetch": true,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "git.confirmSync": false,
+  "terminal.integrated.defaultProfile.windows": "Command Prompt",
+  "liveServer.settings.CustomBrowser": "chrome",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.jsxSingleQuote": true,
+  "prettier.printWidth": 80,
+  "editor.formatOnSave": true,
+  "prettier.tabWidth": 2,
+  "prettier.singleQuote": true
+}
