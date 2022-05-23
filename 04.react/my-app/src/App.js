@@ -28,7 +28,8 @@ import "./App.css";
 // import Storage2 from './Storage2';
 // import Inputs from "./inputs";
 // import CSSMOdule from "./components/CSSModule";
-import StyledComponent from "./components/StyledComponent";
+// import StyledComponent from "./components/StyledComponent";
+import Async from "./components/Async";
 
 function App() {
   // const title = "React";
@@ -144,7 +145,9 @@ function App() {
       {/* <Inputs></Inputs> */}
 
       {/* <CSSMOdule></CSSMOdule> */}
-      <StyledComponent></StyledComponent>
+      {/* <StyledComponent></StyledComponent> */}
+
+      <Async></Async>
     </div>
   );
 }
