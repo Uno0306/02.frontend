@@ -1,0 +1,8 @@
+npm cache clean --force
+
+npm install react-router-dom@6
+
+- Router : 리액트 라우터에서 갖고 있는 모든 데이터, 일종의 컨텍스트 프로바이더와 같은 역할
+<BrowserRoute>
+- Routes, Route : 페이지의 경로, 보여지는 컴포넌트를 지정
+- Link : 

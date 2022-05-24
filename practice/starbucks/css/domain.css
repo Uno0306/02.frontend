@@ -1,162 +1,168 @@
-html, body{
-    height: 100%;
+html,
+body {
+  height: 100%;
 }
 
-
-header{grid-area: header;}
-#main_section{grid-area: section;}
-footer{grid-area: footer;}
-
-body{
-    grid-template-areas: 
-    "header header header"
-    "section section section"
-    ". . ."
-    "footer footer footer";
+header {
+  grid-area: header;
+}
+#main_section {
+  grid-area: section;
+}
+footer {
+  grid-area: footer;
 }
 
-#nav_logo{grid-area: logo;}
-.bar{grid-area: bar;}
-
-header{
-    grid-template-areas: 
-    "logo bar bar";
+body {
+  grid-template-areas:
+    'header header header'
+    'section section section'
+    '. . .'
+    'footer footer footer';
 }
 
-nav{
-    height: auto;
-    width: 100%;
-    position: fixed;
-    background: rgb(218, 203, 122);
-    padding-left: 10%;
-    padding-left: 10%;
+#nav_logo {
+  grid-area: logo;
+}
+.bar {
+  grid-area: bar;
 }
 
-
-#nav_logo{
-    float: left;
-    margin-top: 50px;
-    margin-left: 150px;
-    width: 50px;
-    height: 50px;
+header {
+  grid-template-areas: 'logo bar bar';
 }
 
-.bar{
-    float: left;
+nav {
+  height: auto;
+  width: 100%;
+  position: fixed;
+  background: rgb(218, 203, 122);
+  padding-left: 10%;
+  padding-left: 10%;
 }
 
-.member{
-    float: right;
-    font-size: 15px;
-    font-weight: 80;
-
+#nav_logo {
+  float: left;
+  margin-top: 50px;
+  margin-left: 150px;
+  width: 50px;
+  height: 50px;
 }
 
-.member li{
-    float: left;
-    padding-left: 20px;
+.bar {
+  float: left;
 }
 
-#search{
-    width: 15px;
-    height: 15px;
+.member {
+  float: right;
+  font-size: 15px;
+  font-weight: 80;
 }
 
-.menubar{
-    width: 100%;
-    padding-top: 20px;
-    clear: both;
-    margin-left: 20%;
-    font-size: 20px;
-    font-weight: 100;
+.member li {
+  float: left;
+  padding-left: 20px;
 }
 
-.menubar li{
-    float: left;
-    padding-left: 20px;
+#search {
+  width: 15px;
+  height: 15px;
 }
 
-
-section{
-    height: 380px;
-    border: 2px dashed black;
+.menubar {
+  width: 100%;
+  padding-top: 20px;
+  clear: both;
+  margin-left: 20%;
+  font-size: 20px;
+  font-weight: 100;
 }
 
-.section5{
-    background-image: url("https://www.starbucks.co.kr/common/img/main/fav_prod_bg_new.jpg");
-    background-size: auto 100%;
-    background-repeat: no-repeat;
-    background-position: right bottom;
-    background-attachment: fixed;
+.menubar li {
+  float: left;
+  padding-left: 20px;
 }
 
-.box{
-    width: 100px;
-    height: 100px;
-    background: darkgreen;
-    color: white;
-    text-align: center;
-    line-height: 95px;
+section {
+  height: 380px;
+  border: 2px dashed black;
 }
 
-.fixed{
-    top: 200px;
-    right: 50px;
-    position: fixed;
+.section5 {
+  background-image: url('https://www.starbucks.co.kr/common/img/main/fav_prod_bg_new.jpg');
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-attachment: fixed;
 }
 
-.fixed2{
-    top: 350px;
-    right: 50px;
-    position: fixed;
+.box {
+  width: 100px;
+  height: 100px;
+  background: darkgreen;
+  color: white;
+  text-align: center;
+  line-height: 95px;
+}
+
+.fixed {
+  top: 200px;
+  right: 50px;
+  position: fixed;
+}
+
+.fixed2 {
+  top: 350px;
+  right: 50px;
+  position: fixed;
 }
 
 @keyframes up-size {
-    0%{
-        width: 100px;
-    }
-    100%{
-        width: 200px;
-        background: gold;
-    }
+  0% {
+    width: 100px;
+  }
+  100% {
+    width: 200px;
+    background: gold;
+  }
 }
 
-.fixed:hover, .fixed2:hover{
-    animation: up-size 2s alternate;
+.fixed:hover,
+.fixed2:hover {
+  animation: up-size 2s alternate;
 }
 
-footer{
-    clear: both;
-    position : relative;
-    transform : translateY(-100%);
-    padding-top: 20px;
-    height: 180px;
-    width: auto;
-    background: darkslategray;
-    color: white;
+footer {
+  clear: both;
+  position: relative;
+  transform: translateY(-100%);
+  padding-top: 20px;
+  height: 180px;
+  width: auto;
+  background: darkslategray;
+  color: white;
 }
 
-.ft_nav{
-    height: auto;
-
+.ft_nav {
+  height: auto;
 }
 
-.first_ul{
-   padding-left: 25%;
+.first_ul {
+  padding-left: 25%;
 }
 
-.ft_ul ul{
-    float: left;
-    margin-left: 80px;
-    font-size: 15px;
+.ft_ul ul {
+  float: left;
+  margin-left: 80px;
+  font-size: 15px;
 }
 
-.ft_ul ul li{
-    padding-top: 8px;
+.ft_ul ul li {
+  padding-top: 8px;
 }
 
-.ft_nav.copyright{
-    clear: both;
-    padding-top: 50px;
-    text-align: center;
+.ft_nav.copyright {
+  clear: both;
+  padding-top: 50px;
+  text-align: center;
 }
