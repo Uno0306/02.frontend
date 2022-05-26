@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
 import api from '../utils/api';
+import { Link } from 'react-router-dom';
 
 const NewsListBlock = styled.div`
   box-sizing: border-box;
@@ -26,13 +27,32 @@ const NewsListBlock = styled.div`
 //   urlToImage: 'https://via.placeholder.com/160',
 // };
 
-function NewsList({ category }) {
+function NewsList({ category, categoryValue }) {
   // an 1
   // const [articles, setArticles] = useState(null);
   //   console.log(category);
   const [articles, setArticles] = useState([]);
   const queryString =
-    category === 'all' || category === '' ? '' : `&category=${category}`;
+    // an 1
+    // category === 'all' || category === '' ? '' : `&category=${category}`;
+
+    // an 2
+    // category === ''
+    //   ? `&category=${categoryValue}`
+    //   : category === 'all'
+    //   ? ''
+    //   : `&category=${category}`;
+
+    // an 3
+    // category === ''
+    //   ? categoryValue === '' || categoryValue === '/'
+    //     ? ''
+    //     : `&category=${categoryValue}`
+    //   : category === 'all'
+    //   ? ''
+    //   : `&category=${category}`;
+
+    category === '' || category === 'all' ? '' : `&category=${categoryValue}`;
 
   useEffect(() => {
     const getData = async () => {
@@ -49,7 +69,7 @@ function NewsList({ category }) {
     };
     getData();
   }, [category]);
-  //   console.log(articles);
+  console.log(articles);
 
   return (
     <NewsListBlock>

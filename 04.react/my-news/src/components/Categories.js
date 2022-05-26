@@ -1,6 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import categories from '../utils/categoriesArray';
+import { Link } from 'react-router-dom';
+import getCategoryData from '../api/getCategoryData';
+import { useState } from 'react';
+import { useEffect } from 'react';
+
+// getCategoryData().then((data) => data);
 
 const CategoriesBlock = styled.div`
   display: flex;
@@ -32,6 +37,21 @@ const Category = styled.div`
 `;
 
 function Categories({ seletCategory }) {
+  const [categories, setCategories] = useState([]);
+  const getCategory = async () => {
+    const data = await getCategoryData();
+
+    setCategories(data);
+    // console.log(categories);
+    // console.log(data);
+  };
+  // setCategories(getCategory);
+
+  useEffect(() => {
+    getCategory();
+  }, []);
+
+  console.log(categories);
   return (
     <CategoriesBlock>
       {categories.map((category) => (
@@ -41,7 +61,10 @@ function Categories({ seletCategory }) {
             seletCategory(category.name);
           }}
         >
-          {category.text}
+          {/* {category.name === 'all' ? '' : category.name} */}
+          <Link to={`/${category.name === 'all' ? '' : category.name}`}>
+            {category.text}
+          </Link>
         </Category>
       ))}
     </CategoriesBlock>
