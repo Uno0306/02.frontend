@@ -3,7 +3,7 @@ import React from "react";
 const ACTION_TYPE = {
   add: "add-list",
   delete: "delete-list",
-  alter: "confirmed-list",
+  alter: "confirmed-list"
 };
 
 const List = ({ id, name, confirmed, dispatch }) => {
@@ -13,13 +13,13 @@ const List = ({ id, name, confirmed, dispatch }) => {
       <span
         style={{
           textDecoration: confirmed ? "none" : "line-through",
-          color: confirmed ? "black" : "red",
+          color: confirmed ? "black" : "red"
         }}
         onClick={() =>
           dispatch({
             type: ACTION_TYPE.alter,
             id: { id },
-            confirmed: { confirmed },
+            confirmed: { confirmed }
           })
         }
       >

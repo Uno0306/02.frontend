@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 // import {useReducer} from "react";
 // import UseReducer2Solo from "./UseReducer2Solo";
 
@@ -8,7 +8,6 @@ import React, { useEffect, useState} from "react";
 //     run : "run"
 // };
 
-
 // const reducer = (state, action) => {
 //     console.log(state);
 //     console.log(state.lists);
@@ -17,9 +16,9 @@ import React, { useEffect, useState} from "react";
 //     // state.lists[id].confirmed = action.confirmed;
 //     console.log(id);
 //     // console.log(state);
-    
+
 //     switch(action.type){
- 
+
 //          case ACTION_TYPES.remove:
 //             //  console.log(state);
 //             //  console.log(state.lists);
@@ -40,7 +39,7 @@ import React, { useEffect, useState} from "react";
 //                     return state
 //                 }
 //             });
-//             return state = {count : state.lists.length-1 , 
+//             return state = {count : state.lists.length-1 ,
 //                             lists: [...state.lists, {
 //                                 id: action.id.current,
 //                                 name: action.name,
@@ -55,16 +54,16 @@ import React, { useEffect, useState} from "react";
 // const ids = 0;
 
 // const reducer = (state, action) => {
-//     state = {count : action.count, 
+//     state = {count : action.count,
 //         lists :action.lists};
 //         // .concat(actionArr)}
-//      return state;   
+//      return state;
 // }
 
 //  function useForceUpdate(){
 //         const [value, setValue] = useState(0); // integer state
 //         return () => setValue(value => value + 1); // update the state to force render
-    
+
 // }
 
 // var arr = {};
@@ -73,128 +72,122 @@ import React, { useEffect, useState} from "react";
 
 // var aa = 0;
 
-const ListSolo = ( {props} ) => {
-    // const[cnt, setCnt] = useState(props.lists.length);
-    // const[lis, setLis] = useState(props.lists)
-    console.log("----");
-    console.log(props);
-    console.log("----");
-    // const cnt = props.count;
-    // const lis = props.lists
-    const [FList, setFList] = useState(
-        {
-        // count: 1, 
-        // lists : [
-        //     {
-        //         id: 1,
-        //         name: 'ramen',
-        //         confirmed: true
-        //     }
-        // ]
-            count : props.count,
-            lists: props.lists
+const ListSolo = ({ props }) => {
+  // const[cnt, setCnt] = useState(props.lists.length);
+  // const[lis, setLis] = useState(props.lists)
+  console.log("----");
+  console.log(props);
+  console.log("----");
+  // const cnt = props.count;
+  // const lis = props.lists
+  const [FList, setFList] = useState({
+    // count: 1,
+    // lists : [
+    //     {
+    //         id: 1,
+    //         name: 'ramen',
+    //         confirmed: true
+    //     }
+    // ]
+    count: props.count,
+    lists: props.lists
+  });
+  console.log("****");
+  console.log(FList);
+  console.log("****");
+
+  // const [dis, dispatch] = useReducer(reducer, {count : props.lists.length, lists: props.lists});
+  // dispatch({count: FList.count, lists: FList.lists})
+  // console.log(dis);
+  //     lists: props.lists);
+
+  // const timer = setInterval(()=>{ setFList({count : props.lists.length,
+  //     lists: props.lists}); console.log(FList); }, 1000);
+  // const timer = setTimeout((F)=>{ setFList(FList); console.log(FList); }, 1000);
+
+  // const [fList, setFList] = useState({
+  //                                 count: 1,
+  //                                 lists : [
+  //                                     {
+  //                                         id: 1,
+  //                                         name: 'ramen',
+  //                                         confirmed: true
+  //                                     }
+  //                                 ]
+  //                             });
+
+  // console.log(props);
+  // console.log("---");
+  // const changeArr = (num) => {
+  //     const filter = props.lists.filter(element => element.id != num+1);
+  //     // console.log(filter.length);
+  //     props = {count : filter.length ,
+  //         lists: [...filter]};
+
+  //     console.log(props);
+
+  //     return props;
+  // }
+
+  // console.log(FList);
+  // console.log("FList");
+  // console.log(props);
+  // console.log("props");
+
+  // aa = FList.lists.length;
+  // const forceUpdate = useForceUpdate();
+
+  // if(FList.lists.length != props.lists.length){
+  // }
+
+  let removeHandler = e => {
+    let x = e.target.getAttribute("removevalue");
+    const filter = FList.lists.filter(element => element.id !== parseInt(x));
+    setFList({
+      count: filter.length,
+      lists: filter
     });
-    console.log("****");
-    console.log(FList);
-    console.log("****");
+    // console.log(filter);
+    // dispacth({type:ACTION_TYPES.remote });
+  };
 
-    // const [dis, dispatch] = useReducer(reducer, {count : props.lists.length, lists: props.lists});
-    // dispatch({count: FList.count, lists: FList.lists})
-    // console.log(dis);
-    //     lists: props.lists); 
+  // console.log("filter");
+  // console.log(FList);
+  // console.log("fList2");
 
-    // const timer = setInterval(()=>{ setFList({count : props.lists.length, 
-    //     lists: props.lists}); console.log(FList); }, 1000);
-    // const timer = setTimeout((F)=>{ setFList(FList); console.log(FList); }, 1000);
-    
-    // const [fList, setFList] = useState({
-    //                                 count: 1, 
-    //                                 lists : [
-    //                                     {
-    //                                         id: 1,
-    //                                         name: 'ramen',
-    //                                         confirmed: true
-    //                                     }
-    //                                 ]
-    //                             });
+  // const changeArr = (num) => {
+  //     filter = props.lists.filter(element => element.id != num+1);
+  //     // console.log(filter.length);
+  //     props = {count : filter.length ,
+  //         lists: [...filter]};
 
-    // console.log(props);
-    // console.log("---");
-    // const changeArr = (num) => {
-    //     const filter = props.lists.filter(element => element.id != num+1);
-    //     // console.log(filter.length);
-    //     props = {count : filter.length , 
-    //         lists: [...filter]};
-        
-    //     console.log(props);
-            
-    //     return props;    
-    // }
+  //     console.log(props);
+  //     return setFList(props);
+  //     // console.log(props);
 
-    
-    // console.log(FList);
-    // console.log("FList");
-    // console.log(props);
-    // console.log("props");
-    
-    // aa = FList.lists.length;
-    // const forceUpdate = useForceUpdate();
+  // }
+  // const [fList, dispatch] = useReducer(reducer, props);
 
-    // if(FList.lists.length != props.lists.length){
-    // }
+  // const [finalList3, setFinalList3] = useState(props);
+  // {console.log(finalList3);}
+  // const [finalList2, dispatch] = useReducer(reducer, props);
+  // console.log(finalList2);
+  // {console.log(finalList2);}
+  // console.log(props);
+  // console.log(props);
 
+  // const removeGo = (num) => {
 
-    let removeHandler = (e) => {
-        let x = e.target.getAttribute("removevalue");
-        const filter = FList.lists.filter(element => element.id !== parseInt(x));
-        setFList({
-            count : filter.length,  
-            lists: filter
-        });
-        // console.log(filter);
-        // dispacth({type:ACTION_TYPES.remote });
-    }
+  // };
+  // console.log(obj);
 
-    // console.log("filter");
-    // console.log(FList);
-    // console.log("fList2");
-    
-    // const changeArr = (num) => {
-    //     filter = props.lists.filter(element => element.id != num+1);
-    //     // console.log(filter.length);
-    //     props = {count : filter.length , 
-    //         lists: [...filter]};
-        
-    //     console.log(props);
-    //     return setFList(props);
-    //     // console.log(props);
-            
-    // }
-    // const [fList, dispatch] = useReducer(reducer, props);
+  // const useDispatch = (num) => {
+  //     dispatch({type: ACTION_TYPES.remove, id: num, confirmed: false});
+  // };
 
-
-
-    // const [finalList3, setFinalList3] = useState(props);
-    // {console.log(finalList3);}
-    // const [finalList2, dispatch] = useReducer(reducer, props);
-    // console.log(finalList2);
-    // {console.log(finalList2);}
-    // console.log(props);
-    // console.log(props);
-
-    // const removeGo = (num) => {
-        
-    // };
-    // console.log(obj);
-
-    // const useDispatch = (num) => {
-    //     dispatch({type: ACTION_TYPES.remove, id: num, confirmed: false});
-    // };
-
-    return(
-        <div>
-            
-             {/* <span>{obj.id} </span>
+  return (
+    <div>
+      {/* <span>{obj.id} </span>
             <span>{name}</span>
             <button 
                 onClick={() => {
@@ -205,40 +198,40 @@ const ListSolo = ( {props} ) => {
             </button>
             <br/> */}
 
-            {FList.lists.map((obj) => {
-                // console.log(obj);
-                return(
-                    // <span>${obj.id} </span>
-                    // <span>${obj.name}</span>
-                    // <button 
-                    //     onClick={() => {
-                    //         dispatch(type: ${ACTION_TYPES.remove}, id: ${obj.id})
-                    //     }}
-                    // >
-                    //     삭제
-                    // </button>
-                    // <br/>
-                    <div key={obj.id}>
-                        {console.log(obj.id + " " + obj.name)}
-                        <span>{obj.id} </span>
-                        <span>{obj.name} </span>
-                        <button
-                            // onClick={() => {
-                            //     // useDispatch(obj.id);
-                            //     // dispatch({type: ACTION_TYPES.remove, id: obj.id, confirmed: false})
-                            //     // console.log(obj.id-1);
+      {FList.lists.map(obj => {
+        // console.log(obj);
+        return (
+          // <span>${obj.id} </span>
+          // <span>${obj.name}</span>
+          // <button
+          //     onClick={() => {
+          //         dispatch(type: ${ACTION_TYPES.remove}, id: ${obj.id})
+          //     }}
+          // >
+          //     삭제
+          // </button>
+          // <br/>
+          <div key={obj.id}>
+            {console.log(obj.id + " " + obj.name)}
+            <span>{obj.id} </span>
+            <span>{obj.name} </span>
+            <button
+              // onClick={() => {
+              //     // useDispatch(obj.id);
+              //     // dispatch({type: ACTION_TYPES.remove, id: obj.id, confirmed: false})
+              //     // console.log(obj.id-1);
 
-                            //     // changeArr(obj.id-1);
-                            //     // onRemove(obj.id);
-                            //     // dispatch({type: ACTION_TYPES.remove, })
-                            // }}
-                            removevalue={obj.id}
-                            onClick={removeHandler}
-                        >
-                            삭제
-                        </button>
-                        <br />
-                         {/* <button 
+              //     // changeArr(obj.id-1);
+              //     // onRemove(obj.id);
+              //     // dispatch({type: ACTION_TYPES.remove, })
+              // }}
+              removevalue={obj.id}
+              onClick={removeHandler}
+            >
+              삭제
+            </button>
+            <br />
+            {/* <button 
                         onClick={() => {
                             dispatch(type: ${ACTION_TYPES.remove}, id: ${obj.id})
                         }}
@@ -246,13 +239,13 @@ const ListSolo = ( {props} ) => {
                         삭제
                         </button>
                         <br/> */}
-                    </div>
-                );
-            })}
-            {/* {console.log(props)} */}
-            {/* {console.log("ss")} */}
-        </div>
-    )
-}
+          </div>
+        );
+      })}
+      {/* {console.log(props)} */}
+      {/* {console.log("ss")} */}
+    </div>
+  );
+};
 
 export default ListSolo;
