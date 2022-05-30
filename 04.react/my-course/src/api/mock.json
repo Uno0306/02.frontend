@@ -1,0 +1,193 @@
+{
+  "courses": [
+    {
+      "id": "html-101",
+      "code": "101",
+      "title": "HTML",
+      "difficulty": 1,
+      "slug": "html-basic",
+      "summary": "Web의 기초, 구조를 만드는 일!",
+      "language": "HTML",
+      "photoUrl": "html",
+      "newReleased": false,
+      "topics": [
+        {
+          "topic": {
+            "id": "html-101-001",
+            "slug": "html-basic",
+            "title": "Web의 기초, 구조를 만드는 일",
+            "summary": "입문단계지만 가장 중요한 웹 페이지 전체를 보는 눈!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "css-201",
+      "code": "201",
+      "title": "CSS",
+      "difficulty": 2,
+      "slug": "css-basic",
+      "summary": "Web을 꾸며주는 일!",
+      "language": "CSS",
+      "photoUrl": "css",
+      "newReleased": false,
+      "topics": [
+        {
+          "topic": {
+            "id": "css-201-001",
+            "slug": "css-basic",
+            "title": "CSS 기초 및 선택자",
+            "summary": "CSS 기초 문법 및 선택자를 학습!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "javascript-301",
+      "code": "301",
+      "title": "JavaScript 기초",
+      "difficulty": 2,
+      "slug": "javascript-basic",
+      "summary": "Front-End의 필수! 프로그래밍 언어 JS!",
+      "language": "JAVASCRIPT",
+      "photoUrl": "js",
+      "newReleased": false,
+      "topics": [
+        {
+          "topic": {
+            "id": "javascript-301",
+            "slug": "javascript-basic",
+            "title": "JavaScript 기초",
+            "summary": "기초 문법부터 차근차근 시작하는 JavaSript!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "javascript-302",
+      "code": "302",
+      "title": "JavaScript 중급",
+      "difficulty": 2,
+      "slug": "javascript-intermediate",
+      "summary": "조금 더 심화된 내용의 Javascript 문법!",
+      "language": "JAVASCRIPT",
+      "photoUrl": "js",
+      "newReleased": false,
+      "topics": [
+        {
+          "topic": {
+            "id": "javascript-302",
+            "slug": "javascript-intermediate",
+            "title": "JavaScript 중급",
+            "summary": "조금 더 심화된 내용의 Javascript 문법!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "react-401",
+      "code": "401",
+      "title": "React 기초",
+      "difficulty": 2,
+      "slug": "react-basic",
+      "summary": "완성도 높은 Front-End 개발을 위해!",
+      "language": "JAVASCRIPT",
+      "photoUrl": "react",
+      "newReleased": true,
+      "topics": [
+        {
+          "topic": {
+            "id": "react-401",
+            "slug": "getting-started-with-react",
+            "title": "React 기초",
+            "summary": "React도 기초 문법부터! 컴포넌트란?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "java-501",
+      "code": "501",
+      "title": "Java 기초",
+      "difficulty": 1,
+      "slug": "java-basic",
+      "summary": "개발에서 꾸준한 인기 프로그래밍 언어!",
+      "language": "JAVA",
+      "photoUrl": "java",
+      "newReleased": false,
+      "topics": [
+        {
+          "topic": {
+            "id": "java-501",
+            "slug": "java-basics",
+            "title": "자바 기초",
+            "summary": "기본 개념부터 차근차근!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "spring-601",
+      "code": "601",
+      "title": "Spring Framework",
+      "difficulty": 3,
+      "slug": "spring-framework",
+      "summary": "Java 개발을 효율적으로!",
+      "language": "JAVA",
+      "photoUrl": "spring",
+      "newReleased": false,
+      "topics": [
+        {
+          "topic": {
+            "id": "spring-601",
+            "slug": "spring-framework",
+            "title": "Spring Framework",
+            "summary": "Java 개발을 효율적으로!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "linux-701",
+      "code": "701",
+      "title": "Linux",
+      "difficulty": 1,
+      "slug": "linux",
+      "summary": "Command Line 환경을 학습!",
+      "language": "LINUX",
+      "photoUrl": "linux",
+      "newReleased": false,
+      "topics": [
+        {
+          "topic": {
+            "id": "linux-701",
+            "slug": "linux",
+            "title": "Linux 커맨드 배우기!",
+            "summary": "Command Line 환경을 학습!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mysql-801",
+      "code": "801",
+      "title": "MySQL",
+      "difficulty": 1,
+      "slug": "mysql",
+      "summary": "MySQL을 통한 DB 관리!",
+      "language": "MYSQL",
+      "photoUrl": "mysql",
+      "newReleased": false,
+      "topics": [
+        {
+          "topic": {
+            "id": "mysql-801",
+            "slug": "mysql",
+            "title": "MYSQL을 통한 DB 관리!",
+            "summary": "DB에 저장되어 있는 데이터를 관리하는 방법을 학습"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import getImages from '../api/getImages';
+// import getImages from '../api/getImages';
 // import DummyData from '../asset/dummyData';
 // import api from '../api/api';
 import ImageCard from './ImageCard';
@@ -20,24 +20,45 @@ const ResultsWrapper = styled.div`
   width: 100%;
 `;
 
-const ResultContainer = () => {
+const ResultContainer = ({ data }) => {
   //   const data = DummyData;
-  const [data, setData] = useState({});
-  useEffect(() => {
-    const fetch = async () => {
-      const data = await getImages();
-      setData(data);
-    };
-    fetch();
-  }, []);
-
+  // console.log(data);
+  const total = 0;
   return (
     <Container>
       <ResultsWrapper>
-        {data.hits?.map((imgData) => (
+        {/* {data.hits && data.hits.length === 0 ? (
+          <NotFoundResult />
+        ) : (
+          data.hits?.map((imgData) => (
+            <ImageCard key={imgData.id} imgData={imgData} />
+          ))
+        )} */}
+
+        {/* {data.hits?.map((imgData) => (
           <ImageCard key={imgData.id} imgData={imgData} />
-        ))}
-        <NotFoundResult />
+        ))} */}
+
+        {/* {(data !== 0 &&
+          data.hits?.map((imgData) => (
+            <ImageCard key={imgData.id} imgData={imgData} />
+          ))) <NotFoundResult />} */}
+
+        {/* {data.hits && data.hits.length !== 0 ? (
+          data.hits.map((imgData) => (
+            <ImageCard key={imgData.id} imgData={imgData} />
+          ))
+        ) : (
+          <NotFoundResult />
+        )} */}
+
+        {data.hits?.length > 0 ? (
+          data.hits.map((imgData) => (
+            <ImageCard key={imgData.id} imgData={imgData} />
+          ))
+        ) : (
+          <NotFoundResult />
+        )}
       </ResultsWrapper>
     </Container>
   );
