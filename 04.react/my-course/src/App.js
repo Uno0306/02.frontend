@@ -17,7 +17,7 @@ function App() {
           <Route path='/courses/'>
             <Route index element={<CourseListPage />} />
             {/*  */}
-            <Route path=':courseSlug' element={<CoursePage />} />
+            <Route path=':courseSlug' element={<Cour sePage />} />
           </Route>
           {/*  */}
           <Route path='/wishlist' element={<WishlistPage />} />

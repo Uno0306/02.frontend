@@ -17,11 +17,46 @@ function CoursePage() {
   const headerStyle = {
     borderTopColor: courseColor,
   };
-  console.log(localStorage.getItem());
-  //   localStorage.getItem(key) === courseSlug;
+  //   console.log(course.title);
+  //   console.log(window.localStorage.length);
+  //   console.log(window.localStorage);
+  //   console.log(window.localStorage.getItem('course-wishlist'));
+  //   console.log(JSON.parse(window.localStorage.getItem('course-wishlist')));
+  const dname = course.slug;
+  //   console.log(JSON.parse(window.localStorage.getItem('course-wishlist')));
+  console.log(JSON.parse(window.localStorage.getItem('course-wishlist')));
+  //   const ddd = JSON.parse(window.localStorage.getItem('course-wishlist')).map(
+  //     (idx) => console.log(window.localStorage.key(idx))
+  //   );
+  //   console.log(ddd);
+  const addr = JSON.parse(window.localStorage.getItem('course-wishlist'));
+  console.log(Object.keys(addr)[0]);
+  Object.keys(addr).map((idx) => {
+    Object.keys(addr)[idx] === course.slug
+      ? console.log(Object.keys(addr)[idx])
+      : console.log('ds');
+  });
+  //   console.log(dname);
+  //   console.log(addr.`css-basic);
+  //   console.log(window.localStorage.key(0));
+
+  //   for (
+  //     let i = 0;
+  //     i < JSON.parse(window.localStorage.getItem('course-wishlist')).length;
+  //     i++
+  //   ) {
+  //     console.log(window.localStorage.key(i));
+  //   }
+  //   //   localStorage.getItem(key) === courseSlug;
+  //   const cnst = 0;
+
+  //   const ard = addr.fetch((title) => {
+  //     title === course.title ? cnst + 1 : cnst;
+  //     return cnst;
+  //   });
 
   const handleAddWishlistClick = () => {
-    addWishlist(course?.slug);
+    addWishlist(course.slug);
     cnt === 0
       ? alert('강의가 추가되었습니다.')
       : alert('이미 추가된 강의입니다.');
