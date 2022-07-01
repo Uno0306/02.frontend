@@ -30,6 +30,8 @@ import "./App.css";
 // import CSSMOdule from "./components/CSSModule";
 // import StyledComponent from "./components/StyledComponent";
 // import Async from "./components/Async";
+// import Proxy_CORS from "./components/Proxy_CORS";
+import Dept from "./components/Dept";
 
 function App() {
   // const title = "React";
@@ -148,6 +150,9 @@ function App() {
       {/* <StyledComponent></StyledComponent> */}
 
       {/* <Async></Async> */}
+
+      {/* <Proxy_CORS /> */}
+      <Dept />
     </div>
   );
 }

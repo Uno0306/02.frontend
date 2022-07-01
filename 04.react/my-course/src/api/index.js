@@ -21,11 +21,20 @@ export function addWishlist(courseSlug) {
   wishlist[courseSlug] = true;
   localStorage.setItem(WISHLIST_KEY, JSON.stringify(wishlist));
 }
+// export function addWishlist(courseSlug) {
+//   wishlist[courseSlug] = true;
+//   localStorage.setItem(WISHLIST_KEY,  [pw, [JSON.stringify(wishlist)]]);
+//   localStorage.setItem(WISHLIST_KEY,  {pw:pw, wishlist: [JSON.stringify(wishlist)]});
+// }
 
 export function deleteWishlist(courseSlug) {
   delete wishlist[courseSlug];
   localStorage.setItem(WISHLIST_KEY, JSON.stringify(wishlist));
 }
+// export function deleteWishlist(courseSlug) {
+//   delete wishlist[courseSlug];
+//   localStorage.setItem(WISHLIST_KEY, [pw, [JSON.stringify(wishlist)]]);
+// }
 
 export function getWishlist() {
   return data.courses.filter((course) => wishlist[course.slug]);

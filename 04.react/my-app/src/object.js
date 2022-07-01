@@ -5,11 +5,13 @@ const b = "1";
 // console.log(a === b);       // false
 
 const c = a;
-// console.log(a == c);        // true 
+// console.log(a == c);        // true
 // console.log(a === c);       // true
 
 function sum() {
-    return(a,b)  => {a + b};
+  return (a, b) => {
+    a + b;
+  };
 }
 
 const sum1 = sum();
