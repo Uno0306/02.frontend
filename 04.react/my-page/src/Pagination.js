@@ -20,11 +20,6 @@ const PaginationLi = styled.li`
   }
 `;
 
-// color: ${(props) => props.color};
-
-// ${({ selected }) => {
-//   return selected ? `background:red` : null;
-// }}
 const PaginationSpan = styled.span`
   &[aria-current] {
     background-color: black;
@@ -62,7 +57,6 @@ const Pagination = ({
           {pageNumbers.map((number) => (
             <PaginationLi key={number}>
               <PaginationSpan
-                // color={color}
                 id={'span' + number}
                 selected={check}
                 onClick={() => {
